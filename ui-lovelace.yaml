@@ -1,0 +1,1881 @@
+title: Martijn's Huis
+
+resources:
+  - url: /local/slider-entity-row.js
+    type: js
+  - url: /local/custom-lovelace/weather-card/weather-card.js
+    type: module
+  - url: /local/gauge-card.js?v=2
+    type: js
+  - url: /local/mini-media-player/mini-media-player.js?v=0.8.3
+    type: module
+  - url: /local/thermostat-card.js
+    type: module
+  - url: /local/simple-thermostat.js
+    type: module
+  - url: /local/card-modder.js
+    type: module
+  - url: /local/card-tools.js
+    type: js
+  - url: https://unpkg.com/moment@2.22.2/moment.js
+    type: js
+  - url: /local/custom_ui/calendar-card/calendar-card.js
+    type: module
+  - url: /local/entity-attributes-card.js
+    type: js
+  - url: /local/jukebox.js
+    type: module
+  - url: /local/tiles-card.js
+    type: js
+  - url: /local/state-switch.js
+    type: js
+  - url: /local/mini-graph-card-bundle.js
+    type: module
+  - url: /local/button-card.js
+    type: module
+  - url: /local/compact-custom-header.js
+    type: module
+  - url: /local/bar-card.js
+    type: js
+  - url: /local/monster-card.js
+    type: js
+
+background: center / cover no-repeat url("/local/back.png") fixed
+views:
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  entity: sensor.martijn_status
+                  type: picture-entity
+                  state_image:
+                    "Thuis": /local/tinus.jpg
+                    "Niet thuis": /local/tinus-away.jpg
+                  name: Martijn
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  entity: sensor.ellen_status
+                  type: picture-entity
+                  state_image:
+                    "Thuis": /local/ellen.jpg
+                    "Niet thuis": /local/ellen-away.jpg
+                  name: Ellen
+          - type: horizontal-stack
+            cards:
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: custom:mini-graph-card
+                entities:
+                  - sensor.darksky_temperatuur
+                name: Buiten
+                line_color: blue
+                line_width: 8
+                font_size: 50
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: custom:mini-graph-card
+                entities:
+                  - sensor.woonkamer_temperatuur
+                name: Binnen
+                line_color: var(--accent-color)
+                line_width: 8
+                font_size: 50
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: custom:mini-graph-card
+                entities:
+                  - sensor.slaapkamer_sensor_temperature
+                name: Slaapkamer
+                line_color: var(--accent-color)
+                line_width: 8
+                font_size: 50
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  entity: group.deuren
+                  action: more_info
+                  name: Deuren
+                  icon: mdi:door
+                  color: rgb(28, 128, 199)
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  entity: group.ramen
+                  action: more_info
+                  name: Ramen
+                  icon: mdi:window-closed
+                  color: rgb(28, 128, 199)
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  entity: climate.woonkamer
+                  action: more_info
+                  icon: mdi:thermostat
+                  show_state: true
+                  state:
+                    - value: 'off'
+                      icon: mdi:thermostat
+                    - value: 'heat'
+                      color: rgb(255, 165, 0)
+                      icon: mdi:thermostat
+                    - value: 'eco'
+                      color: rgb(40, 205, 50)
+                      icon: mdi:thermostat
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  entity: group.all_lights
+                  action: more_info
+                  name: Verlichting
+                  icon: mdi:lightbulb
+                  color: rgb(28, 128, 199)
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  entity: group.entertainment
+                  action: more_info
+                  name: Media
+                  icon: mdi:library-music
+                  color: rgb(28, 128, 199)
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:mini-graph-card
+                  entities:
+                    - sensor.stroom_verbruik
+                  show:
+                    graph: bar
+                  color_thresholds:
+                    - value: 200
+                      color: "#6B8E23"
+                    - value: 500
+                      color: "#FFA500"
+                    - value: 1000
+                      color: "#FF4500"
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:mini-graph-card
+                  line_color: blue
+                  entities:
+                    - sensor.gas_verbruik
+                  show:
+                    graph: bar
+                  color_thresholds:
+                    - value: 0
+                      color: "#6B8E23"
+                    - value: 10
+                      color: "#FFA500"
+                    - value: 50
+                      color: "#FF4500"
+          - type: 'custom:card-modder'
+            style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border-style: solid
+                  border-color: '#323232'
+                  border-width: 1px
+                  color: "#999999"
+            card:
+              type: 'custom:calendar-card'
+              name: Agenda
+              numberOfDays: 7
+              showProgressBar: false
+              entities:
+                - calendar.martijn_kalf_gmail_com
+                - calendar.https_www_avalex_nl_ical_0503200000109880
+              showColors: true
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: 'custom:bar-card'
+                  entity: sensor.speedtest_download
+                  min: 0
+                  max: 400
+                  severity:
+                  - value: 25
+                    color: '#FF0000'
+                  - value: 200
+                    color: '#FFA500'
+                  - value: 500
+                    color: '#28CD32'
+                  title: Download
+                  alight: left
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: 'custom:bar-card'
+                  entity: sensor.speedtest_upload
+                  min: 0
+                  max: 400
+                  severity:
+                  - value: 5
+                    color: '#FF0000'
+                  - value: 15
+                    color: '#FFA500'
+                  - value: 45
+                    color: '#28CD32'
+                  title: Upload
+                  alight: left             
+    icon: 'mdi:home'
+    title: Overzicht
+  
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  name: Beneden
+                  entity: sensor.benedenhal_nest_protect_kleur
+                  icon: mdi:smoke-detector
+                  action: more_info
+                  state:
+                    - value: 'green'
+                      color: rgb(40, 205, 50)
+                    - value: 'yellow'
+                      color: rgb(255, 255, 0)
+                    - value: 'red'
+                      color: rgb(255, 0, 0)
+                    - value: 'grey'
+                      color: rgb(192, 192, 192)
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  name: Boven
+                  entity: sensor.bovenhal_nest_protect_kleur
+                  icon: mdi:smoke-detector
+                  action: more_info
+                  state:
+                    - value: 'green'
+                      color: rgb(40, 205, 50)
+                    - value: 'yellow'
+                      color: rgb(255, 255, 0)
+                    - value: 'red'
+                      color: rgb(255, 0, 0)
+                    - value: 'grey'
+                      color: rgb(192, 192, 192)
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  name: Toilet
+                  entity: light.toilet
+                  icon: mdi:toilet
+                  action: more_info
+                  state:
+                    - value: 'off'
+                      color: rgb(40, 205, 50)
+                    - value: 'on'
+                      color: rgb(255, 0, 0)
+          - type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            card:
+              type: picture-glance
+              entities:
+                - switch.woonkamer_televisie
+                - switch.woonkamer_appletv
+                - switch.woonkamer_bluray_speler
+                - switch.woonkamer_chromecast
+                - switch.woonkamer_playstation4
+                - switch.woonkamer_xbox
+                - switch.woonkamer_squeezebox
+                - switch.woonkamer_radio
+              camera_image: camera.woonkamer_camera
+          - type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            card:
+              type: picture-glance
+              entities:
+                - light.schuur
+              camera_image: camera.tuin_camera
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Locatie
+          show_header_toggle: false
+          entities:
+            - entity: sensor.google_geocode
+              icon: mdi:crosshairs-gps
+              name: Martijn
+    icon: 'mdi:chart-bar'
+    title: Overzicht
+
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Woonkamer
+          show_header_toggle: false
+          entities:
+            - entity: light.woonkamer
+              type: custom:slider-entity-row
+              name: Zithoek
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: light.videohoek
+              type: custom:slider-entity-row
+              icon: mdi:spotlight-beam
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: switch.woonkamer_boekenkast_verlichting
+              name: Boekenkast
+              secondary_info: last-changed
+            - entity: switch.woonkamer_televisie_meubel_verlichting
+              name: Videomeubel
+              icon: mdi:led-strip
+              secondary_info: last-changed
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Keuken
+          show_header_toggle: false
+          entities:
+            - entity: light.keuken
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: light.keuken_vloer_verlichting
+              type: custom:slider-entity-row
+              name: Vloer
+              icon: mdi:led-strip
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: light.fornuis
+              type: custom:slider-entity-row
+              name: Afzuigkap
+              icon: mdi:spotlight-beam
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Slaapkamer
+          show_header_toggle: false
+          entities:
+            - entity: light.slaapkamer
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: light.slaapkamer_hoeklamp
+              type: custom:slider-entity-row
+              name: Hoek
+              icon: mdi:floor-lamp
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: light.slaapkamer_kledingkast_spot
+              type: custom:slider-entity-row
+              name: Kledingkast
+              icon: mdi:spotlight-beam
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: switch.nachtlamp_links
+              name: Nachtlampje links
+              secondary_info: last-changed
+            - entity: switch.nachtlamp_rechts
+              name: Nachtlampje rechts
+              secondary_info: last-changed
+            - entity: switch.bed_sensor
+              name: Bed verlichting
+              icon: mdi:led-strip
+              secondary_info: last-changed
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Kantoor
+          show_header_toggle: false
+          entities:
+            - entity: light.kantoor
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: switch.kantoor_burolamp
+              name: Burolamp
+              secondary_info: last-changed
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Logeerkamer
+          show_header_toggle: false
+          entities:
+            - entity: light.logeer_kamer
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Beneden hal
+          show_header_toggle: false
+          entities:
+            - entity: light.beneden_hal
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Boven hal
+          show_header_toggle: false
+          entities:
+            - entity: light.boven_hal
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Toilet
+          show_header_toggle: false
+          entities:
+            - entity: light.toilet
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Badkamer
+          show_header_toggle: false
+          entities:
+            - entity: light.badkamer
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Zolder
+          show_header_toggle: false
+          entities:
+            - entity: light.zolder
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Schuur
+          show_header_toggle: false
+          entities:
+            - entity: light.schuur
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+    icon: 'mdi:ceiling-light'
+    title: Verlichting
+
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Verlichting
+          show_header_toggle: false
+          entities:
+            - entity: light.woonkamer
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: light.videohoek
+              type: custom:slider-entity-row
+              name: TV verlichting
+              icon: mdi:spotlight-beam
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: switch.woonkamer_boekenkast_verlichting
+              name: Boekenkast
+            - entity: switch.woonkamer_televisie_meubel_verlichting
+              name: Video meubel
+              icon: mdi:led-strip
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Entertainment
+          show_header_toggle: false
+          entities:
+            - entity: switch.woonkamer_televisie
+              name: Televisie
+            - entity: switch.woonkamer_appletv
+              name: Apple TV
+            - entity: switch.woonkamer_bluray_speler
+              name: Blu-ray speler
+            - entity: switch.woonkamer_chromecast
+              name: Chromecast
+            - entity: switch.woonkamer_playstation3
+              name: Playstation 3
+            - entity: switch.woonkamer_playstation4
+              name: Playstation 4
+            - entity: switch.woonkamer_xbox
+              name: Xbox One
+            - entity: switch.woonkamer_squeezebox
+              name: Squeezebox
+            - entity: switch.woonkamer_radio
+              name: Radio
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.woonkamer_appletv
+              state_not: "idle"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.woonkamer_appletv
+            name: Apple TV
+            icon: mdi:apple
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.woonkamer_chromecast
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.woonkamer_chromecast
+            name: Chromecast
+            icon: mdi:cast
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.woonkamer_googlehome
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.woonkamer_googlehome
+            name: Google home
+            icon: mdi:google-home
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.woonkamer_squeezebox
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.woonkamer_squeezebox
+            name: Squeezebox
+            icon: mdi:radio
+            artwork: cover
+    icon: 'mdi:sofa'
+    title: Woonkamer
+
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Wekker
+          show_header_toggle: false
+          entities:
+            - entity: input_boolean.alarmweekaan
+            - entity: input_boolean.alarmweekdag
+            - entity: input_number.alarmuur
+            - entity: input_number.alarmminuten
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Verlichting
+          show_header_toggle: false
+          entities:
+            - entity: light.slaapkamer
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: light.slaapkamer_hoeklamp
+              type: custom:slider-entity-row
+              name: Hoeklamp
+              icon: mdi:floor-lamp
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: switch.nachtlamp_links
+              name: Nachtlampje links
+            - entity: switch.nachtlamp_rechts
+              name: Nachtlampje rechts
+            - entity: switch.bed_sensor
+              name: Bed verlichting
+              icon: mdi:led-strip
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Entertainment
+          show_header_toggle: false
+          entities:
+            - entity: switch.slaapkamer_televisie
+              name: Televisie
+            - entity: switch.slaapkamer_appletv
+              name: Apple TV
+            - entity: switch.slaapkamer_chromecast
+              name: Chromecast
+            - entity: input_boolean.woonkamercamera_naar_slaapkamerchromecast
+              name: Woonkamer camera
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.slaapkamer_apple_tv
+              state_not: "idle"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.slaapkamer_apple_tv
+            name: Apple TV
+            icon: mdi:apple
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.slaapkamer_chromecast
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.slaapkamer_chromecast
+            icon: mdi:cast
+            name: Chromecast
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.slaapkamer_google_home
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.slaapkamer_google_home
+            icon: mdi:google-home
+            name: Google home
+            artwork: cover
+    icon: 'mdi:sleep'
+    title: Slaapkamer
+
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Verlichting
+          show_header_toggle: false
+          entities:
+            - entity: light.kantoor
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+            - entity: switch.kantoor_burolamp
+              name: Burolamp
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Entertainment
+          show_header_toggle: false
+          entities:
+            - entity: switch.kantoor_televisie
+              name: Televisie
+            - entity: switch.kantoor_appletv
+              name: Apple TV
+            - entity: switch.kantoor_playstation3
+              name: Playstation 3
+            - entity: switch.kantoor_squeezebox
+              name: Squeezebox
+            - entity: switch.kantoor_chromecast_audio
+              name: Chromecast audio
+            - entity: switch.kantoor_radio
+              name: Radio
+            - type: divider
+            - entity: switch.kantoor_linuxpc
+              name: Linux workstation
+              icon: mdi:desktop-classic
+            - entity: input_boolean.woonkamercamera_naar_googlehomehub
+              name: Woonkamer Camera
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.kantoor_apple_tv
+              state_not: "idle"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.kantoor_apple_tv
+            icon: mdi:apple
+            name: Apple TV
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.kantoor_chromecastaudio
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.kantoor_chromecastaudio
+            icon: mdi:cast
+            name: Chromecast audio
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.kantoor_googlehome
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.kantoor_googlehome
+            icon: mdi:google-home
+            name: Google home
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.logeerkamer_googlehub
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.logeerkamer_googlehub
+            icon: mdi:google-home
+            name: Google hub
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.kantoor_squeezebox
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.kantoor_squeezebox
+            icon: mdi:radio
+            name: Squeezebox
+            artwork: cover
+    icon: 'mdi:laptop'
+    title: Kantoor
+
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Verlichting
+          show_header_toggle: false
+          entities:
+            - entity: light.logeer_kamer
+              type: custom:slider-entity-row
+              name: Plafond
+              icon: mdi:ceiling-light
+              secondary_info: last-changed
+              hide_when_off: true
+              toggle: true
+              group: true
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Entertainment
+          show_header_toggle: false
+          entities:
+            - entity: switch.logeerkamer_televisie
+              name: Televisie
+            - entity: switch.logeerkamer_appletv
+              name: Apple TV
+            - entity: switch.logeerkamer_chromecast
+              name: Chromecast
+            - entity: switch.logeerkamer_dvd_speler
+              name: DVD speler
+            - entity: switch.logeerkamer_playstation3
+              name: Playstation 3
+            - entity: switch.logeerkamer_squeezebox
+              name: Squeezebox
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.logeerkamer_appletv
+              state_not: "idle"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.logeerkamer_appletv
+            icon: mdi:apple
+            name: Apple TV
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.logeerkamer_chromecast
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.logeerkamer_chromecast
+            icon: mdi:cast
+            name: Chromecast
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.logeerkamer_squeezebox
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.logeerkamer_squeezebox
+            icon: mdi:radio
+            name: Squeezebox
+            artwork: cover
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: conditional
+          conditions:
+            - entity: media_player.logeerkamer_googlehome
+              state_not: "off"
+          card:
+            type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            type: 'custom:mini-media-player'
+            entity: media_player.logeerkamer_googlehome
+            icon: mdi:google-home
+            name: Google home
+            artwork: cover
+    icon: 'mdi:hotel'
+    title: Logeerkamer
+
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: 'custom:monster-card'
+          card:
+            type: glance
+            title: Batterijen minder dan 40%
+          filter:
+            include:
+              - domain: binary_sensor
+                attributes:
+                  battery_level: '< 40'
+              - entity_id: device_tracker.iphone_van_martijn
+                attributes:
+                  battery: '< 40'
+              - entity_id: device_tracker.martijns_ipad
+                attributes:
+                  battery: '< 40'
+              - entity_id: device_tracker.martijns_ipad_air
+                attributes:
+                  battery: '< 40'
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: markdown
+          content: >
+            **Home server**
+              ==========
+      - type: horizontal-stack
+        cards:
+        - type: 'custom:card-modder'
+          style:
+            border-radius: 20px
+            background-image: url("/local/cardbackK.png")
+            background-repeat: no-repeat
+            background-color: rgba(50,50,50,0.3)
+            background-size: 100% 68px
+            border: solid 1px rgba(100,100,100,0.3)
+            color: "#999999"
+            box-shadow: 3px 3px rgba(0,0,0,0.4)
+          card:
+            type: custom:mini-graph-card
+            entities:
+              - sensor.processor_use
+            name: CPU
+            show:
+              graph: bar
+            color_thresholds:
+              - value: 0
+                color: "#6B8E23"
+              - value: 20
+                color: "#FFA500"
+              - value: 50
+                color: "#FF4500"
+        - type: 'custom:card-modder'
+          style:
+            border-radius: 20px
+            background-image: url("/local/cardbackK.png")
+            background-repeat: no-repeat
+            background-color: rgba(50,50,50,0.3)
+            background-size: 100% 68px
+            border: solid 1px rgba(100,100,100,0.3)
+            color: "#999999"
+            box-shadow: 3px 3px rgba(0,0,0,0.4)
+          card:
+            type: custom:mini-graph-card
+            entities:
+              - sensor.memory_use_percent
+            name: RAM
+            show:
+              graph: bar
+            color_thresholds:
+              - value: 5
+                color: "#6B8E23"
+              - value: 50
+                color: "#FFA500"
+              - value: 90
+                color: "#FF4500"
+        - type: 'custom:card-modder'
+          style:
+            border-radius: 20px
+            background-image: url("/local/cardbackK.png")
+            background-repeat: no-repeat
+            background-color: rgba(50,50,50,0.3)
+            background-size: 100% 68px
+            border: solid 1px rgba(100,100,100,0.3)
+            color: "#999999"
+            box-shadow: 3px 3px rgba(0,0,0,0.4)
+          card:
+            type: custom:mini-graph-card
+            entities:
+              - sensor.disk_use_percent
+            name: DISK
+            show:
+              graph: bar
+            color_thresholds:
+              - value: 0 
+                color: "#6B8E23"
+              - value: 50
+                color: "#FFA500"
+              - value: 75
+                color: "#FF4500"
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Services
+          entity: sensor.plex
+          show_header_toggle: false
+          entities:
+            - entity: sensor.pihole
+              icon: mdi:dns
+            - entity: sensor.mosquitto
+              icon: mdi:lan
+            - entity: sensor.plex
+              icon: mdi:plex
+            - entity: sensor.squeezebox
+              icon: mdi:playlist-music
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: markdown
+          content: >
+            **Meterkast raspberry pi**
+              ======================
+      - type: horizontal-stack
+        cards:
+        - type: 'custom:card-modder'
+          style:
+            border-radius: 20px
+            background-image: url("/local/cardbackK.png")
+            background-repeat: no-repeat
+            background-color: rgba(50,50,50,0.3)
+            background-size: 100% 68px
+            border: solid 1px rgba(100,100,100,0.3)
+            color: "#999999"
+            box-shadow: 3px 3px rgba(0,0,0,0.4)
+          card:
+            type: custom:mini-graph-card
+            entities:
+              - sensor.glances_cpu_used
+            name: CPU
+            show:
+              graph: bar
+            color_thresholds:
+              - value: 0
+                color: "#6B8E23"
+              - value: 20
+                color: "#FFA500"
+              - value: 50
+                color: "#FF4500"
+        - type: 'custom:card-modder'
+          style:
+            border-radius: 20px
+            background-image: url("/local/cardbackK.png")
+            background-repeat: no-repeat
+            background-color: rgba(50,50,50,0.3)
+            background-size: 100% 68px
+            border: solid 1px rgba(100,100,100,0.3)
+            color: "#999999"
+            box-shadow: 3px 3px rgba(0,0,0,0.4)
+          card:
+            type: custom:mini-graph-card
+            entities:
+              - sensor.glances_ram_used
+            name: RAM
+            show:
+              graph: bar
+            color_thresholds:
+              - value: 5
+                color: "#6B8E23"
+              - value: 50
+                color: "#FFA500"
+              - value: 90
+                color: "#FF4500"
+        - type: 'custom:card-modder'
+          style:
+            border-radius: 20px
+            background-image: url("/local/cardbackK.png")
+            background-repeat: no-repeat
+            background-color: rgba(50,50,50,0.3)
+            background-size: 100% 68px
+            border: solid 1px rgba(100,100,100,0.3)
+            color: "#999999"
+            box-shadow: 3px 3px rgba(0,0,0,0.4)
+          card:
+            type: custom:mini-graph-card
+            entities:
+              - sensor.glances_disk_used
+            name: DISK
+            show:
+              graph: bar
+            color_thresholds:
+              - value: 0 
+                color: "#6B8E23"
+              - value: 50
+                color: "#FFA500"
+              - value: 75
+                color: "#FF4500"
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Services
+          entity: sensor.plex
+          show_header_toggle: false
+          entities:
+            - entity: sensor.ser2net
+              icon: mdi:serial-port
+            - entity: sensor.glances
+              icon: mdi:view-dashboard
+    icon: 'mdi:settings'
+    title: System Monitor

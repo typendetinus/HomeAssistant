@@ -1,0 +1,4 @@
+  - platform: ping
+    host: 10.0.1.211
+    count: 2
+    scan_interval: 30

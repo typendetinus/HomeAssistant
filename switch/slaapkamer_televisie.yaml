@@ -1,0 +1,15 @@
+  - platform: template
+    switches:
+      slaapkamer_televisie:
+        value_template: "{{ is_state_attr('remote.slaapkamer_hub', 'current_activity', 'Tv kijken') }}"
+        friendly_name: Slaapkamer televisie
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.slaapkamer_hub
+          data:
+            activity: "35390910"
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.slaapkamer_hub
+          data:
+            activity: "-1"

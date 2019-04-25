@@ -1,0 +1,13 @@
+  - platform: qnap
+    host: 10.0.1.101
+    username: !secret qnap_user
+    password: !secret qnap_pwd
+    monitored_conditions:
+      - status
+      - volume_percentage_used
+      - system_temp
+      - cpu_temp
+      - cpu_usage
+      - memory_free
+      - network_tx
+      - network_rx

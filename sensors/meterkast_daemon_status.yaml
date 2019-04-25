@@ -1,0 +1,7 @@
+  - platform: command_line
+    command: ssh pi@meterkast.local sudo systemctl --all | grep ser2net | awk '{ print $3 }'
+    name: Ser2net
+
+  - platform: command_line
+    command: ssh pi@meterkast.local sudo systemctl --all | grep glances | awk '{ print $3 }'
+    name: Glances

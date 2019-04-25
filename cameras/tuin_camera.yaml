@@ -1,0 +1,6 @@
+  - platform: foscam
+    ip: 10.0.1.161
+    username: !secret foscam_user
+    password: !secret foscam_pwd
+    name: Tuin Camera
+    rtsp_port: 554

@@ -1,0 +1,15 @@
+  - platform: template
+    switches:
+      kantoor_appletv:    
+        value_template: "{{ is_state_attr('remote.officehub', 'current_activity', 'Apple TV kijken') }}"
+        friendly_name: Kantoor Apple TV
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.officehub
+          data:
+            activity: "38647484"
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.officehub
+          data:
+            activity: "-1"

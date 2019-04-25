@@ -1,0 +1,28 @@
+
+- cal_id: martijn.kalf@gmail.com
+  entities:
+  - device_id: martijn_kalf_gmail_com
+    ignore_availability: true
+    name: martijn.kalf@gmail.com
+    track: true
+
+- cal_id: c2qmoq177pmmg33k37i1dmvefrj95fob@import.calendar.google.com
+  entities:
+  - device_id: https_www_avalex_nl_ical_0503200000109880
+    ignore_availability: true
+    name: https://www.avalex.nl/ical/0503200000109880
+    track: true
+
+- cal_id: addressbook#contacts@group.v.calendar.google.com
+  entities:
+  - device_id: contacts
+    ignore_availability: true
+    name: Contacts
+    track: true
+
+- cal_id: nl.dutch#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: feestdagen_in_nederland
+    ignore_availability: true
+    name: Feestdagen in Nederland
+    track: true

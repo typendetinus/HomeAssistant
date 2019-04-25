@@ -1,0 +1,137 @@
+  - id: action_push_message
+    alias: 'Slaapkamer raam is nog open'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.martijn_present
+        from: 'on'
+        to: 'off'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.slaapkamer_raam
+        state: 'on'
+    action:
+      service: notify.ios_iphone_van_martijn
+      data:
+        message: 'Let op! Slaapkamer raam is nog open'
+        data:
+          push:
+            badge: 0
+            category: "openwindow"
+          action_data:
+            entity_id: binary_sensor.slaapkamer_raam
+
+  - id: action_push_message
+    alias: 'Logeerkamer raam is nog open'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.martijn_present
+        from: 'on'
+        to: 'off'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.logeerkamer_raam
+        state: 'on'
+    action:
+      service: notify.ios_iphone_van_martijn
+      data:
+        message: 'Let op! Logeerkamer raam is is nog open'
+        data:
+          push:
+            badge: 0
+            category: "openwindow"
+          action_data:
+            entity_id: binary_sensor.logeerkamer_raam
+
+  - id: action_push_message
+    alias: 'Zolder raam links is nog open'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.martijn_present
+        from: 'on'
+        to: 'off'
+    condition:
+      - condition: state
+        entity_id:  binary_sensor.zolder_raam_links
+        state: 'on'
+    action:
+      service: notify.ios_iphone_van_martijn
+      data:
+        message: 'Let op! Zolder raam links is nog open'
+        data:
+          push:
+            badge: 0
+            category: "openwindow"
+          action_data:
+            entity_id:  binary_sensor.zolder_raam_links
+
+  - id: action_push_message
+    alias: 'Zolder raam rechts is nog open'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.martijn_present
+        from: 'on'
+        to: 'off'
+    condition:
+      - condition: state
+        entity_id:  binary_sensor.zolder_raam_rechts
+        state: 'on'
+    action:
+      service: notify.ios_iphone_van_martijn
+      data:
+        message: 'Let op! Zolder raam rechts is nog open'
+        data:
+          push:
+            badge: 0
+            category: "openwindow"    
+          action_data:
+            entity_id:  binary_sensor.zolder_raam_rechts
+
+  - id: action_push_message
+    alias: 'Keuken raam is nog open'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.martijn_present
+        from: 'on'
+        to: 'off'
+    condition:
+      - condition: state
+        entity_id:  binary_sensor.keuken_raam
+        state: 'on'
+    action:
+      service: notify.ios_iphone_van_martijn
+      data:
+        message: 'Let op! Keukenraam rechts is nog open'
+        data:
+          push:
+            badge: 0
+            category: "openwindow"
+          action_data:
+            entity_id:  binary_sensor.keuken_raam
+
+  - id: action_push_message
+    alias: 'Woonkamer raam is nog open'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.martijn_present
+        from: 'on'
+        to: 'off'
+    condition:
+      - condition: state
+        entity_id:  binary_sensor.woonkamer_raam
+        state: 'on'
+    action:
+      service: notify.ios_iphone_van_martijn
+      data:
+        message: 'Let op! Woonkamer raam is nog open'
+        data:
+          push:
+            badge: 0
+            category: "openwindow"
+          action_data:
+            entity_id:  binary_sensor.woonkamer_raam

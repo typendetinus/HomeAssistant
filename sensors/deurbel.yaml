@@ -1,0 +1,4 @@
+  - platform: mqtt
+    state_topic: "doorbellsensor/status"
+    name: Deurbel
+    icon: mdi:doorbell-video

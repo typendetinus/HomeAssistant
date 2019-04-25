@@ -1,0 +1,5 @@
+  - name: ING
+    latitude: !secret lawork
+    longitude: !secret lowork
+    radius: 100
+    icon: mdi:domain

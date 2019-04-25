@@ -1,0 +1,149 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Digitijn
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret lalocation
+  longitude: !secret lolocation
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  # Customization file
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+frontend:
+  themes: !include_dir_merge_named themes
+
+lovelace:
+  mode: yaml
+
+default_config:
+
+config:
+updater:
+# Discover some devices automatically
+discovery:
+
+cloud:
+    google_actions: !include google_home.yaml
+
+ios:
+
+stream:
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 120
+  monitored_conditions:
+    - download
+    - upload
+
+# MQTT Broker configuratie
+mqtt:
+  broker: localhost
+  username: mqrt_user
+  password: !secret mqtt_pwd
+
+# Registreer lokatie van devices
+map:
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+    name: Weersverwachting
+    mode: daily
+
+rfxtrx:
+  device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A11AAXIB-if00-port0
+  debug: True
+
+google:
+  client_id: !secret google_client
+  client_secret: !secret google_secret
+
+remote:
+  - platform: harmony
+    name: Living Room Hub
+    host: 10.0.1.213
+  - platform: harmony
+    name: OfficeHUB
+    host: 10.0.1.159
+  - platform: harmony
+    name: GuestHub
+    host: 10.0.1.250
+  - platform: harmony
+    name: Slaapkamer Hub
+    host: 10.0.1.233
+
+xiaomi_aqara:
+  discovery_retry: 9
+  gateways:
+    - key: 02A73446903C46EF
+
+# Nest thermoestaat en protect configuratie
+nest:
+  client_id: !secret nest_client
+  client_secret: !secret nest_secret
+
+# Wekker Config
+input_number:
+  alarmuur:
+    name: Uur
+    icon: mdi:timer
+    initial: 5
+    min: 0
+    max: 23
+    step: 1
+    mode: slider
+  alarmminuten:
+    name: Minuten
+    icon: mdi:timer
+    initial: 00
+    min: 0
+    max: 59
+    step: 5
+    mode: slider
+input_boolean:
+  alarmweekdag:
+    name: Werkweek
+    initial: on
+    icon: mdi:calendar
+  alarmweekaan:
+    name: Actief
+    initial: on
+  martijn_present:
+    icon: mdi:account
+  ellen_present:
+    icon: mdi:account
+  woonkamercamera_naar_googlehomehub:
+    icon: mdi:cctv
+  tuincamera_naar_googlehomehub:
+    icon: mdi:cctv
+  woonkamercamera_naar_slaapkamerchromecast:
+    icon: mdi:cctv
+
+
+shell_command:
+  zet_linuxpc_uit: "ssh martijn@spacestation.local sudo pm-suspend"
+
+# Text to speech
+tts:
+  - platform: google_translate
+    service_name: google_say
+
+switch: !include_dir_merge_list switch/
+group: !include groups.yaml
+automation: !include_dir_merge_list automations/
+script: !include_dir_merge_named scripts/
+sensor: !include_dir_merge_list sensors/
+media_player: !include_dir_merge_list media_players/
+scene: !include_dir_merge_list scenes/
+zone: !include_dir_merge_list zones/
+camera: !include_dir_merge_list cameras/
+binary_sensor: !include_dir_merge_list binary_sensors/
+device_tracker: !include_dir_merge_list device_trackers/
+homekit: !include homekit.yaml

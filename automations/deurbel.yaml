@@ -1,0 +1,15 @@
+  - id: wifi_deurbel_afwezig
+    alias: "Laat weten of de deurbel gaat"
+    initial_state: true
+    trigger:
+      platform: mqtt
+      topic: doorbellsensor/status
+    action:
+      - service: script.turn_on
+        data_template:
+          entity_id: >-
+            {% if is_state('input_boolean.martijn_present', 'on') %}
+              script.deurbel_thuis
+            {% else %}
+              script.deurbel_niet_thuis
+            {% endif %}

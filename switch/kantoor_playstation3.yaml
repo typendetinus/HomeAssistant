@@ -1,0 +1,15 @@
+  - platform: template
+    switches:
+      kantoor_playstation3:
+        value_template: "{{ is_state_attr('remote.officehub', 'current_activity', 'Afspelen PS3') }}"
+        friendly_name: Kantoor playstation 3
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.officehub
+          data:
+            activity: "38836545"
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.officehub
+          data:
+            activity: "-1"

@@ -1,0 +1,18 @@
+  - platform: command_line
+    command: systemctl --all | grep plex | awk '{ print $3 }'
+    name: Plex
+
+  - platform: command_line
+    command: systemctl --all | grep pihole-FTL | awk '{ print $3 }'
+    name: Pihole
+
+  - platform: command_line
+    command: systemctl --all | grep logitech | awk '{ print $3 }'
+    name: Squeezebox
+
+  - platform: command_line
+    command: systemctl --all | grep mosquitto | awk '{ print $3 }'
+    name: Mosquitto
+
+  - platform: command_line
+    command: systemctl --all | grep influxdb | awk '{ print $3 }'

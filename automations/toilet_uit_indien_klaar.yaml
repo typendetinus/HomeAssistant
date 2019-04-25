@@ -1,0 +1,14 @@
+  - alias: "Toilet verlichting uit wanneer klaar"
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.toilet_deur
+      to: 'on'
+    condition:
+      condition: state
+      entity_id: light.toilet
+      state: 'on'
+    action:
+      service: light.turn_off
+      entity_id: light.toilet
+

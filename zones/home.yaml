@@ -1,0 +1,6 @@
+  - name: Home
+    latitude: !secret lalocation
+    longitude: !secret lolocation
+    radius: 100
+    icon: mdi:account
+

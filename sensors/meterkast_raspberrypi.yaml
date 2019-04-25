@@ -1,0 +1,7 @@
+  - platform: glances
+    host: meterkast.local
+    version: 3
+    resources:
+      - 'cpu_use_percent'
+      - 'memory_use_percent'
+      - 'disk_use_percent'

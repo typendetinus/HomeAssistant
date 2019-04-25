@@ -1,0 +1,6 @@
+  deurbel_niet_thuis:
+    sequence:
+      - service: notify.ios_iphone_van_martijn
+        data:
+          title: "Deurbel!"
+          message: "Er staat iemand aan de deur"

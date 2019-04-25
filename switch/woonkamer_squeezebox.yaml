@@ -1,0 +1,15 @@
+  - platform: template
+    switches:
+      woonkamer_squeezebox:
+        value_template: "{{ is_state_attr('remote.living_room_hub', 'current_activity', 'Squeezebox') }}"
+        friendly_name: Woonkamer Squeezebox
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.living_room_hub
+          data:
+            activity: "34016707"
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.living_room_hub
+          data:
+            activity: "-1"

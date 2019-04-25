@@ -1,0 +1,6 @@
+  - platform: google_geocode
+    origin: device_tracker.iphone_van_martijn
+    options: formatted_address
+    display_zone: hide
+    gravatar: martijn.kalf@gmail.com
+    api_key: !secret google_geo_api

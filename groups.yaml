@@ -1,0 +1,65 @@
+  alarmclock:
+    name: Wekker
+    control: hidden
+    entities: 
+      - sensor.alarm_tijd
+      - input_number.alarmuur
+      - input_number.alarmminuten
+      - input_boolean.alarmweekdag
+      - input_boolean.alarmweekaan
+
+  energiemeters:
+    name: Energieverbruik
+    control: hidden
+    entities:
+      - sensor.power_consumption_low
+      - sensor.power_consumption_normal
+      - sensor.gas_consumption
+
+  deuren:
+    name: Alle Buitendeuren
+    control: hidden
+    entities:
+      - binary_sensor.schuur_deur
+      - binary_sensor.terrasdeur
+      - binary_sensor.tuindeur
+      - binary_sensor.voordeur
+
+  ramen:
+    name: Alle Ramen
+    control: hidden
+    entities:
+      - binary_sensor.keuken_raam
+      - binary_sensor.logeerkamer_raam
+      - binary_sensor.slaapkamer_raam
+      - binary_sensor.woonkamer_raam
+      - binary_sensor.zolder_raam_links
+      - binary_sensor.zolder_raam_rechts
+      - binary_sensor.kantoor_raam
+
+  entertainment:
+    name: Entertainment
+    control: hidden
+    entities:
+      - remote.guesthub
+      - remote.living_room_hub
+      - remote.officehub
+      - remote.slaapkamer_hub
+
+  tv_verlichting:
+    name: TV Verlichting
+    control: hidden
+    entities:
+      - light.woonkamer_televisie_spot_links
+      - light.woonkamer_televisie_spot_rechts
+
+  beneden:
+    name: Beneden
+    control: hidden
+    entities:
+      - light.beneden_hal
+      - light.fornuis
+      - light.keuken
+      - light.keuken_vloer
+      - light.videohoek
+      - light.woonkamer

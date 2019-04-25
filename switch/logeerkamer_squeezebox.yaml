@@ -1,0 +1,15 @@
+  - platform: template
+    switches:
+      logeerkamer_squeezebox:    
+        value_template: "{{ is_state_attr('remote.guesthub', 'current_activity', 'Squeezebox') }}"
+        friendly_name: Logeerkamer squeezebox
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.guesthub
+          data:
+            activity: "33911872"
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.guesthub
+          data:
+            activity: "-1"

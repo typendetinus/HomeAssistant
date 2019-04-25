@@ -1,0 +1,15 @@
+  - platform: template
+    switches:
+      kantoor_radio:
+        value_template: "{{ is_state_attr('remote.officehub', 'current_activity', 'Naar radio luisteren') }}"
+        friendly_name: Kantoor Radio
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.officehub
+          data:
+            activity: "38647496"
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.officehub
+          data:
+            activity: "-1"

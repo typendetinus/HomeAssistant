@@ -1,0 +1,13 @@
+  - alias: "Zithoek verlichting aan bij zonsondergang"
+    initial_state: 'on'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '+00:00:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.martijn_present
+        state: 'on'
+    action:
+      service: scene.turn_on
+      entity_id: scene.woonkamer_on

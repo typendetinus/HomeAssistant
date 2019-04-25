@@ -1,0 +1,15 @@
+  - platform: template
+    switches:
+      slaapkamer_chromecast:
+        value_template: "{{ is_state_attr('remote.slaapkamer_hub', 'current_activity', 'Chromecast') }}"
+        friendly_name: Slaapkamer chromecast
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.slaapkamer_hub
+          data:
+            activity: "36561617"
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.slaapkamer_hub
+          data:
+            activity: "-1"

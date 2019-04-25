@@ -1,0 +1,6 @@
+  - name: Ellen
+    latitude: !secret laellen
+    longitude: !secret loellen
+    radius: 100
+    icon: mdi:human-female
+

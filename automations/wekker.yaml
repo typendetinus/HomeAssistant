@@ -1,0 +1,49 @@
+  - alias: "Huis opstarten tijdens werkdagen"
+    trigger:
+      - platform: time_pattern
+        minutes: '/1'
+        seconds: 0
+    condition:
+      - condition: state
+        entity_id: input_boolean.alarmweekaan
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.alarmweekdag
+        state: 'on'
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: template
+        value_template: '{{ now().strftime("%H:%M") == states.sensor.alarm_tijd.state }}'
+    action:
+      - service: script.opstarten_werkdag
+
+  - alias: "Huis opstarten in het weekend"
+    trigger:
+      - platform: time_pattern
+        minutes: '/1'
+        seconds: 0
+    condition:
+      - condition: state
+        entity_id: input_boolean.alarmweekaan
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.alarmweekdag
+        state: 'off'
+      - condition: time
+        weekday:
+          - sat
+          - sun
+      - condition: template
+        value_template: '{{ now().strftime("%H:%M") == states.sensor.alarm_tijd.state }}'
+    action:
+      service: light.turn_on
+      entity_id: light.bedroom
+      data:
+        transition: 600
+        brightness: 255
+

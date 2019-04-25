@@ -1,0 +1,27 @@
+  - alias: "Display woonkamer camera op slaapkamer chromecast"
+    trigger:
+      platform: state
+      entity_id: input_boolean.woonkamercamera_naar_slaapkamerchromecast
+      from: 'off'
+      to: 'on'
+    action:
+      - service: media_player.turn_on
+        entity_id: media_player.slaapkamer_chromecast
+      - delay:
+          seconds: 5
+      - service: camera.play_stream
+        data:
+          entity_id: camera.woonkamer_camera
+          media_player: media_player.slaapkamer_chromecast
+
+  - alias: "Stop woonkamer camera op slaapkamer chromecast"
+    trigger:
+      platform: state
+      entity_id: input_boolean.woonkamercamera_naar_slaapkamerchromecast
+      from: 'on'
+      to: 'off'
+    action:
+      - service: media_player.media_stop
+        entity_id: media_player.slaapkamer_chromecast
+      - service: media_player.turn_off
+        entity_id: media_player.slaapkamer_chromecast

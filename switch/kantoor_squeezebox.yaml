@@ -1,0 +1,15 @@
+  - platform: template
+    switches:
+      kantoor_squeezebox:
+        value_template: "{{ is_state_attr('remote.officehub', 'current_activity', 'Squeezebox') }}"
+        friendly_name: Kantoor Squeezebox
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.officehub
+          data:
+            activity: "38647565"
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.officehub
+          data:
+            activity: "-1"

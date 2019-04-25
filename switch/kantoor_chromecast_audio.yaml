@@ -1,0 +1,15 @@
+  - platform: template
+    switches:
+      kantoor_chromecast_audio:
+        value_template: "{{ is_state_attr('remote.officehub', 'current_activity', 'Chromecast audio') }}"
+        friendly_name: Kantoor Chromecast Audio
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.officehub
+          data:
+            activity: "38647565"
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.officehub
+          data:
+            activity: "-1"

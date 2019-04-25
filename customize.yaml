@@ -1,0 +1,293 @@
+switch.woonkamer_televisie_meubel_verlichting:
+  friendly_name: Woonkamer Televisie Meubel Verlichting
+  icon: mdi:lightbulb
+media_player.office_squeezebox:
+  icon: mdi:desk-lamp
+switch.kantoor_burolamp:
+  friendly_name: Kantoor Burolamp
+  icon: mdi:desk-lamp
+switch.woonkamer_boekenkast_verlichting:
+  icon: mdi:lamp
+switch.slaapkamer_nachtlampje_links:
+  icon: mdi:lamp
+switch.slaapkamer_nachtlampje_rechts:
+  icon: mdi:lamp
+sun.sun:
+  friendly_name: Stand Van De Zon
+switch.slaapkamer_bed_verlichting:
+  icon: mdi:hotel
+switch.woonkamer_televisie:
+  icon: mdi:television
+switch.woonkamer_aappletv:
+  icon: mdi:apple
+switch.woonkamer_squeezebox:
+  icon: mdi:radio
+switch.woonkamer_bluray_speler:
+  icon: mdi:disc
+switch.woonkamer_playstation3:
+  icon: mdi:playstation
+switch.woonkamer_chromecast:
+  icon: mdi:cast
+switch.woonkamer_playstation4:
+  icon: mdi:playstation
+switch.woonkamer_radio:
+  icon: mdi:radio-fm
+switch.kantoor_televisie:
+  friendly_name: Kantoor Televisie
+  icon: mdi:television
+switch.logeerkamer_chromecast:
+  friendly_name: Logeerkamer Chromecast
+  icon: mdi:cast
+switch.kantoor_radio:
+  icon: mdi:radio-fm
+switch.logeerkamer_playstation3:
+  friendly_name: Logeerkamer Playstation 3
+  icon: mdi:playstation
+switch.slaapkamer_appletv:
+  icon: mdi:apple
+switch.slaapkamer_televisie:
+  friendly_name: Slaapkamer Televisie
+  icon: mdi:television
+switch.kantoor_chromecast_audio:
+  friendly_name: Kantoor Chromecast Audio
+  icon: mdi:cast
+switch.woonkamer_xbox:
+  friendly_name: Woonkamer Xbox
+  icon: mdi:xbox
+remote.guesthub:
+  friendly_name: Logeerkamer Harmony Hub
+remote.living_room_hub:
+  friendly_name: Woonkamer Harmony Hub
+binary_sensor.badkamer_deur:
+  friendly_name: Badkamer deur
+switch.kantoor_playstation3:
+  friendly_name: Kantoor Playstation 3
+  icon: mdi:playstation
+switch.logeerkamer_squeezebox:
+  friendly_name: Logeerkamer Squeezebox
+  icon: mdi:radio
+switch.slaapkamer_chromecast:
+  friendly_name: Slaapkamer Chromecast
+  icon: mdi:cast
+sensor.woonkamer_doel_temperatuur:
+  friendly_name: Woonkamer ingestelde temperatuur
+switch.logeerkamer_televisie:
+  icon: mdi:television
+switch.kantoor_squeezebox:
+  icon: mdi:radio
+switch.logeerkamer_appletv:
+  icon: mdi:apple
+switch.kantoor_appletv:
+  icon: mdi:apple
+switch.logeerkamer_dvd_speler:
+  icon: mdi:disc
+zone.home:
+  friendly_name: Thuis
+remote.bedroomhub:
+  friendly_name: Slaapkamer Harmony Hub
+remote.officehub:
+  friendly_name: Kantoor Harmony Hub
+sensor.yr_symbol:
+  friendly_name: Weer
+light.boven_hal:
+  friendly_name: Boven Hal Verlichting
+light.fornuis:
+  friendly_name: Keuken Afzuigkap Verlichting
+light.kantoor:
+  friendly_name: Kantoor Verlichting
+light.keuken:
+  friendly_name: Keuken Verlichting
+light.logeer_kamer:
+  friendly_name: Logeerkamer Verlichting
+sensor.long_power_failure_count:
+  friendly_name: Stroom Onbeschikbaar
+light.woonkamer:
+  friendly_name: Woonkamer Verlichting
+light.zolder:
+  friendly_name: Zolder Verlichting
+light.zolder_verlichting:
+  friendly_name: Zolder Lamp
+light.slaapkamer:
+  friendly_name: Slaapkamer Verlichting
+light.schuur_verlichting:
+  friendly_name: Schuur Lamp
+light.schuur:
+  friendly_name: Schuur Verlichting
+sensor.gas_consumption:
+  friendly_name: Gas Verbruik
+sensor.hourly_gas_consumption:
+  friendly_name: Gas Verbruik Per Uur
+sensor.keuken_switch:
+  friendly_name: Keuken Schakelaar
+binary_sensor.ping_binary_sensor:
+  friendly_name: Kantoor Linux PC ping status
+zone.mother:
+  friendly_name: Moeder
+sensor.power_consumption:
+  friendly_name: Energieverbruik
+sensor.kantoor_schakelaar:
+  friendly_name: Kantoor Schakelaar
+light.keuken_vloer:
+  friendly_name: Keuken Vloer
+sensor.logeerkamer_schakelaar:
+  friendly_name: Logeerkamer Schakelaar
+sensor.power_consumption_low:
+  friendly_name: Energieverbruik Laag Tarief
+sensor.power_consumption_normal:
+  friendly_name: Energieverbruik Normaal Tarief
+sensor.badkamer_schakelaar:
+  friendly_name: Badkamer Schakelaar
+media_player.kantoor_apple_tv:
+  friendly_name: Kantoor Apple TV
+remote.kantoor_apple_tv:
+  friendly_name: Kantoor Apple TV Remote
+binary_sensor.beneden_hal_motion_sensor:
+  friendly_name: Beneden Hal Beweging
+binary_sensor.slaapkamer_motion_sensor:
+  friendly_name: Slaapkamer Beweging
+binary_sensor.toilet_motion_sensor:
+  friendly_name: Toilet Beweging
+sensor.power_tariff:
+  friendly_name: Energie Tarief
+sensor.voltage_sags_phase_l1:
+  friendly_name: Voltage Daling Fase L1
+sensor.voltage_phase_l1:
+  friendly_name: Voltage Fase L1
+sensor.voltage_phase_l2:
+  friendly_name: Voltage Fase L2
+sensor.voltage_phase_l3:
+  friendly_name: Voltage Fase L3
+sensor.voltage_sags_phase_l2:
+  friendly_name: Voltage Daling Fase L2
+sensor.voltage_sags_phase_l3:
+  friendly_name: Voltage Daling Fase L3
+sensor.voltage_swells_phase_l1:
+  friendly_name: Voltage Stijging Fase L1
+sensor.voltage_swells_phase_l2:
+  friendly_name: Voltage Stijging Fase L2
+sensor.voltage_swells_phase_l3:
+  friendly_name: Voltage Stijging Fase L3
+light.keuken_afzuigkap_1:
+  friendly_name: Keuken Afzuigkap Lamp 1
+light.keuken_afzuigkap_2:
+  friendly_name: Keuken Afzuigkap Lamp 2
+sensor.power_production:
+  friendly_name: Stroom Opwekking
+remote.slaapkamer_hub:
+  friendly_name: Slaapkamer Harmony Hub
+switch.kantoor_linuxpc:
+  friendly_name: Kantoor Linux PC
+  icon: mdi:desktop-classic
+sensor.slaapkamer_temperatuur:
+  friendly_name: Slaapkamer Temperatuur
+sensor.beneden_hal_lux:
+  friendly_name: Beneden Hal Lux
+sensor.beneden_hal_temperatuur:
+  friendly_name: Beneden Hal Temperatuur
+light.beneden_hal:
+  friendly_name: Beneden Hal Verlichting
+sensor.toilet_lux:
+  friendly_name: Toilet Lux
+sensor.toilet_temperatuur:
+  friendly_name: Toilet Temperatuur
+sensor.slaapkamer_lux:
+  friendly_name: Slaapkamer Lux
+sensor.illumination_slaapkamer_aqara_lux:
+  friendly_name: Slaapkamer Lumen Aqara
+switch.woonkamer_appletv:
+  icon: mdi:apple
+sensor.date:
+  friendly_name: Datum
+sensor.time:
+  friendly_name: Tijd
+sensor.battery:
+  State: Not Charging
+  friendly_name: iPhone Oplaad Status
+sensor.iphone_van_martijn_battery_level:
+  Device Name: iPhone van Martijn
+  friendly_name: iPhone Batterij
+sensor.tilt_angle_158d0002b83d41:
+  friendly_name: Zolder Wasdroger Sensor Positie
+sensor.ssid:
+  friendly_name: Iphone Verbonden Met SSID
+sensor.bed_activity_158d0002b83d41:
+  friendly_name: Zolder Wasdroger Orientatie
+device_tracker.6444bfb1b8754c968cea9b86cca52daf:
+  friendly_name: iPhone Locatie
+sensor.bssid:
+  friendly_name: iPhone Verbonden Met BSSID
+sensor.iphone_van_martijn_battery_state:
+  friendly_name: iPhone Batterij Status
+input_boolean.martijn_present:
+  friendly_name: Martijn Thuis
+input_boolean.ellen_present:
+  friendly_name: Ellen Thuis
+device_tracker.iphone_van_martijn:
+  friendly_name: Martijn's iPhone
+  icon: mdi:cellphone-iphone
+sensor.power_consumption_phase_l1:
+  friendly_name: Stroom Verbruik Fase L1
+sensor.power_consumption_phase_l2:
+  friendly_name: Stroom Verbruik Fase L2
+sensor.power_consumption_phase_l3:
+  friendly_name: Stroom Verbruik Fase L3
+sensor.power_production_low:
+  friendly_name: Stroom Opwekking (dal)
+sensor.power_production_normal:
+  friendly_name: Stroom Opwekking (normaal)
+sensor.power_production_phase_l1:
+  friendly_name: Stroom Opwekking Fase L1
+sensor.power_production_phase_l2:
+  friendly_name: Stroom Opwekking Fase L2
+sensor.power_production_phase_l3:
+  friendly_name: Stroom Opwekking Fase L3
+calendar.contacts:
+  friendly_name: Contacten
+sensor.iphone_update:
+  friendly_name: iPhone Laatste Update
+calendar.https_www_avalex_nl_ical_0503200000109880:
+  friendly_name: Afval Kalender
+calendar.feestdagen_in_nederland:
+  friendly_name: Feestdagen In Nederland
+sensor.vault_cpu_temperature:
+  friendly_name: NAS CPU Temperatuur
+group.calendar:
+  friendly_name: Kalender
+calendar.martijn_kalf_gmail_com:
+  friendly_name: Agenda
+sensor.vault_status:
+  friendly_name: NAS Status
+sensor.vault_cpu_usage:
+  friendly_name: NAS CPU Gebruik
+sensor.vault_memory_available:
+  friendly_name: NAS Beschikbaar Geheugen
+sensor.vault_network_down_eth0:
+  friendly_name: NAS Netwerkverkeer Down (eth0)
+sensor.vault_network_down_eth1:
+  friendly_name: NAS Netwerkverkeer Down (eth1)
+sensor.vault_network_up_eth0:
+  friendly_name: NAS Netwerkverkeer Up (eth0)
+sensor.vault_network_up_eth1:
+  friendly_name: NAS Netwerkverkeer Up (eth1)
+sensor.vault_system_temperature:
+  friendly_name: NAS Systeem Temperatuur
+sensor.vault_volume_used_volume_1:
+  friendly_name: NAS Opslag In Gebruik
+sensor.speedtest_download:
+  friendly_name: Download
+sensor.speedtest_upload:
+  friendly_name: Upload
+group.tv_verlichting:
+  icon: mdi:lightbulb
+device_tracker.martijns_ipad:
+  icon: mdi:tablet-ipad
+device_tracker.martijns_ipad_air:
+  icon: mdi:tablet-ipad
+switch.nachtlamp_links:
+  friendly_name: Slaapkamer Nachtlampje Links
+  icon: mdi:lamp
+switch.nachtlamp_rechts:
+  friendly_name: Slaapkamer Nachtlampje Rechts
+  icon: mdi:lamp
+switch.bed_sensor:
+  icon: mdi:led-strip

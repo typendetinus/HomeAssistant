@@ -1,0 +1,16 @@
+# Example .gitignore file for your config dir.
+# A * ensures that everything will be ignored.
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+.spotify-token-cache
+.ios.conf
+.uuid
+www/ellen*
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+secrets.yaml
+known_devices.yaml
+home-assistant_v2.db

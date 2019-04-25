@@ -1,0 +1,4 @@
+  - platform: dsmr
+    host: meterkast.local
+    port: 2001
+    dsmr_version: 5

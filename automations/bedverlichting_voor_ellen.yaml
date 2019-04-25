@@ -1,0 +1,21 @@
+  - alias: 'Bedverlichting uit wanneer Ellen er is'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.ellen_present
+        from: 'off'
+        to: 'on'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.bed_sensor
+
+  - alias: 'Bedverlichting aan wanneer Ellen er niet is'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.ellen_present
+        from: 'on'
+        to: 'off'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.bed_sensor

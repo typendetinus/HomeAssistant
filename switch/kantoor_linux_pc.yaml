@@ -1,0 +1,6 @@
+  - platform: wake_on_lan
+    mac_address: "14-da-e9-78-5a-e8"
+    host: 10.0.1.211
+    name: "kantoor linuxpc"
+    turn_off:
+      service: shell_command.zet_linuxpc_uit

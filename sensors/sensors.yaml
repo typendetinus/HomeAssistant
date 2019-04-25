@@ -1,0 +1,31 @@
+  - platform: template
+    sensors:
+      martijn_status:
+        value_template: >-
+          {% if is_state('input_boolean.martijn_present', 'on') %}
+            Thuis
+          {% else %}
+            Niet thuis
+          {% endif %}
+        friendly_name: 'Martijn'
+      ellen_status:
+        value_template: >-
+          {% if is_state('input_boolean.ellen_present', 'on') %}
+            Thuis
+          {% else %}
+            Niet thuis
+          {% endif %}
+      stroom_verbruik:
+        friendly_name: Electriciteit
+        entity_id: sensor.time
+        value_template: "{{ states('sensor.power_consumption')|float * 1000 }}"
+        unit_of_measurement: 'kW'
+      gas_verbruik:
+        friendly_name: Gas
+        entity_id: sensor.time
+        value_template: "{{ states('sensor.hourly_gas_consumption')|float * 100 }}"
+        unit_of_measurement: 'cm3'
+      darksky_temperatuur:
+        friendly_name: Buiten Temperatuur
+        value_template: '{{state_attr("weather.weersverwachting", "temperature")}}'
+        unit_of_measurement: °C

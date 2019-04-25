@@ -1,0 +1,33 @@
+  - name: Woonkamer en keuken verlichting bij zonsopkomst
+    entities:
+        light.woonkamer:
+            state: on
+            transition: 2
+            brightness_pct: 70
+        light.keuken_lamp_1:
+            state: on
+            transition: 2
+            brightness_pct: 5
+        light.keuken_lamp_2:
+            state: on
+            transition: 2
+            brightness_pct: 5
+        light.keuken_lamp_3:
+            state: on
+            transition: 2
+            brightness_pct: 5
+        light.keuken_vloer:
+            state: on
+            transition: 2
+            brightness_pct: 10
+
+  - name: woonkamer on
+    entities:
+        light.woonkamer:
+            state: on
+            transition: 2
+            brightness_pct: 70
+        light.keuken_vloer:
+            state: on
+            transition: 2
+            brightness_pct: 10

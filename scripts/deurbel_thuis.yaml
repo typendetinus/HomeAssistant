@@ -1,0 +1,38 @@
+  deurbel_thuis:
+    sequence:
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.woonkamer_googlehome
+          volume_level: 0.6
+      - service: tts.google_say
+        entity_id: media_player.woonkamer_googlehome
+        data:
+          message: 'Opgelet! Er staat iemand voor de deur'
+          language: 'nl'
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.logeerkamer_googlehome
+          volume_level: 0.3
+      - service: tts.google_say
+        entity_id: media_player.logeerkamer_googlehome
+        data:
+          message: 'Opgelet! Er staat iemand voor de deur'
+          language: 'nl'
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.slaapkamer_google_home
+          volume_level: 0.3
+      - service: tts.google_say
+        entity_id: media_player.slaapkamer_google_home
+        data:
+          message: 'Opgelet! Er staat iemand voor de deur'
+          language: 'nl'
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.kantoor_googlehome
+          volume_level: 0.4
+      - service: tts.google_say
+        entity_id: media_player.kantoor_googlehome
+        data:
+          message: 'Opgelet! Er staat iemand voor de deur'
+          language: 'nl'

@@ -1,0 +1,18 @@
+  - alias: "Zet woonkamer en keukenverlichting aan na afgaan wekker"
+    initial_state: 'on'
+    hide_entity: False
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.alarm_tijd.state }}'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.alarmweekaan
+          state: 'on'
+        - condition: state
+          entity_id: sun.sun
+          state: 'below_horizon'
+    action:
+      service: scene.turn_on
+      entity_id: scene.woonkamer_en_keuken_verlichting_bij_zonsopkomst
