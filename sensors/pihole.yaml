@@ -1,0 +1,6 @@
+  - platform: pi_hole
+    host: 10.0.1.215:88
+    monitored_conditions:
+      - ads_blocked_today
+      - dns_queries_today
+      - unique_clients
