@@ -77,7 +77,7 @@ remote:
     host: 10.0.1.250
   - platform: harmony
     name: Slaapkamer Hub
-    host: 10.0.1.233
+    host: 10.0.1.179
 
 xiaomi_aqara:
   discovery_retry: 9

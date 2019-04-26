@@ -1879,3 +1879,399 @@ views:
               icon: mdi:view-dashboard
     icon: 'mdi:settings'
     title: System Monitor
+
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: vertical-stack
+        cards:
+          - type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            card:
+              type: markdown
+              content: >
+                **Home Server**
+                  ==========
+          - type: 'horizontal-stack'
+            cards:
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.processor_use
+                name: CPU
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 0
+                    color: "#6B8E23"
+                  - value: 20
+                    color: "#FFA500"
+                  - value: 50
+                    color: "#FF4500"
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.memory_use_percent
+                name: RAM
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 5
+                    color: "#6B8E23"
+                  - value: 50
+                    color: "#FFA500"
+                  - value: 90
+                    color: "#FF4500"
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: custom:mini-graph-card
+                entities:
+                  - sensor.disk_use_percent
+                name: DISK
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 0 
+                    color: "#6B8E23"
+                  - value: 50
+                    color: "#FFA500"
+                  - value: 75
+                    color: "#FF4500"
+          - type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            card:
+              type: markdown
+              content: >
+                **Meterkast Raspberry Pi**
+                  ======================
+          - type: 'horizontal-stack'
+            cards:
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.glances_cpu_used
+                name: CPU
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 0
+                    color: "#6B8E23"
+                  - value: 20
+                    color: "#FFA500"
+                  - value: 50
+                    color: "#FF4500"
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.glances_ram_used
+                name: RAM
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 5
+                    color: "#6B8E23"
+                  - value: 50
+                    color: "#FFA500"
+                  - value: 90
+                    color: "#FF4500"
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.glances_disk_used
+                name: DISK
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 0 
+                    color: "#6B8E23"
+                  - value: 50
+                    color: "#FFA500"
+                  - value: 75
+                    color: "#FF4500"
+          - type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            card:
+              type: markdown
+              content: >
+                **Vault Fileserver**
+                  ================
+          - type: 'horizontal-stack'
+            cards:
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.vault_cpu_usage
+                name: CPU
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 0
+                    color: "#6B8E23"
+                  - value: 20
+                    color: "#FFA500"
+                  - value: 50
+                    color: "#FF4500"
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.vault_memory_usage
+                name: RAM
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 5
+                    color: "#6B8E23"
+                  - value: 50
+                    color: "#FFA500"
+                  - value: 90
+                    color: "#FF4500"
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.vault_volume_used_volume_1
+                name: DISK
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 0 
+                    color: "#6B8E23"
+                  - value: 50
+                    color: "#FFA500"
+                  - value: 75
+                    color: "#FF4500"
+      - type: vertical-stack
+        cards:
+          - type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            card:
+              type: markdown
+              content: >
+                **Netwerk**
+                  =======
+          - type: 'horizontal-stack'
+            cards:
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.pi_hole_dns_queries_today
+                name: DNS
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 50000 
+                    color: "#6B8E23"
+                  - value: 75000
+                    color: "#FFA500"
+                  - value: 100000
+                    color: "#FF4500"
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.pi_hole_ads_blocked_today
+                name: Blocked
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 2500 
+                    color: "#6B8E23"
+                  - value: 5000
+                    color: "#FFA500"
+                  - value: 10000
+                    color: "#FF4500"
+          - type: 'horizontal-stack'
+            cards:
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.speedtest_download
+                name: Downstream
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 500 
+                    color: "#6B8E23"
+                  - value: 300
+                    color: "#FFA500"
+                  - value: 200
+                    color: "#FF4500"
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3)
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.speedtest_upload
+                name: Upstream
+                show:
+                  graph: line
+                color_thresholds:
+                  - value: 50 
+                    color: "#6B8E23"
+                  - value: 30
+                    color: "#FFA500"
+                  - value: 20
+                    color: "#FF4500"
+    icon: 'mdi:monitor'
+    title: Office Display

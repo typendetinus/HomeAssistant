@@ -8,6 +8,6 @@
       - system_temp
       - cpu_temp
       - cpu_usage
-      - memory_free
+      - memory_percent_used
       - network_tx
       - network_rx
