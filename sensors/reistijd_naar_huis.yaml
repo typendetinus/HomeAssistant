@@ -1,0 +1,5 @@
+  - platform: waze_travel_time
+    name: "Naar Huis"
+    origin: device_tracker.iphone_van_martijn
+    destination: zone.home
+    region: 'EU'

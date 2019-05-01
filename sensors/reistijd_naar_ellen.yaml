@@ -1,0 +1,5 @@
+  - platform: waze_travel_time
+    name: "Naar Ellen"
+    origin: device_tracker.iphone_van_martijn
+    destination: zone.ellen
+    region: 'EU'

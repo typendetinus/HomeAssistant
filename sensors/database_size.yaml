@@ -1,0 +1,7 @@
+  - platform: sql
+    db_url: mysql://hass_user:Sandino49@localhost/hass_db
+    queries:
+      - name: DB size
+        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024) "value" FROM information_schema.tables WHERE table_schema="hass_db" GROUP BY table_schema;'
+        column: 'value'
+        unit_of_measurement: MB

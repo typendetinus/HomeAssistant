@@ -291,3 +291,7 @@ switch.nachtlamp_rechts:
   icon: mdi:lamp
 switch.bed_sensor:
   icon: mdi:led-strip
+person.martijn:
+  entity_picture: /local/tinus.jpg
+  icon: 'mdi:home'
+  title: Overzicht

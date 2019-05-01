@@ -18,6 +18,9 @@ homeassistant:
 frontend:
   themes: !include_dir_merge_named themes
 
+recorder:
+  db_url: mysql://hass_user:Sandino49@localhost/hass_db
+
 lovelace:
   mode: yaml
 
@@ -34,6 +37,12 @@ cloud:
 ios:
 
 stream:
+
+person:
+  - name: Martijn
+    id: dikketinus
+    device_trackers:
+      - device_tracker.iphone_van_martijn
 
 speedtestdotnet:
   scan_interval:
@@ -71,7 +80,7 @@ remote:
     host: 10.0.1.213
   - platform: harmony
     name: OfficeHUB
-    host: 10.0.1.159
+    host: 10.0.1.244
   - platform: harmony
     name: GuestHub
     host: 10.0.1.250
@@ -125,7 +134,16 @@ input_boolean:
     icon: mdi:cctv
   woonkamercamera_naar_slaapkamerchromecast:
     icon: mdi:cctv
+  dummy5:
+    name: Dummy Button 5
+    initial: off
 
+input_select:
+  martijn:
+    name: Categorie
+    options:
+      - Algemeen
+      - Agenda
 
 shell_command:
   zet_linuxpc_uit: "ssh martijn@spacestation.local sudo pm-suspend"
