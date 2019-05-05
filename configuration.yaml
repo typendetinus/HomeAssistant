@@ -21,6 +21,9 @@ frontend:
 recorder:
   db_url: mysql://hass_user:Sandino49@localhost/hass_db
 
+influxdb:
+  host: 10.0.1.215
+
 lovelace:
   mode: yaml
 
@@ -37,6 +40,8 @@ cloud:
 ios:
 
 stream:
+
+circadian_lighting:
 
 person:
   - name: Martijn
@@ -73,20 +78,20 @@ rfxtrx:
 google:
   client_id: !secret google_client
   client_secret: !secret google_secret
-
+  track_new_calendar: true
 remote:
   - platform: harmony
     name: Living Room Hub
-    host: 10.0.1.213
+    host: HarmonyHub.martijn
   - platform: harmony
     name: OfficeHUB
-    host: 10.0.1.244
+    host: officehub.martijn
   - platform: harmony
     name: GuestHub
-    host: 10.0.1.250
+    host: GuestHub.martijn
   - platform: harmony
     name: Slaapkamer Hub
-    host: 10.0.1.179
+    host: SlaapkamerHUB.martijn
 
 xiaomi_aqara:
   discovery_retry: 9

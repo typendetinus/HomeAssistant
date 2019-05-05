@@ -39,6 +39,8 @@ resources:
     type: js
   - url: /local/monster-card.js
     type: js
+  - url: /local/atomic-calendar.js
+    type: module
 
 background: center / cover no-repeat url("/local/back.png") fixed
 views:
@@ -104,9 +106,16 @@ views:
                 entities:
                   - sensor.darksky_temperatuur
                 name: Buiten
-                line_color: blue
-                line_width: 8
-                font_size: 50
+                font_size: 75
+                show:
+                  labels: false
+                color_thresholds:
+                  - value: 0
+                    color: 'red'
+                  - value: 10
+                    color: 'orange'
+                  - value: 20
+                    color: 'green'
             - type: 'custom:card-modder'
               style:
                 border-radius: 20px
@@ -122,9 +131,16 @@ views:
                 entities:
                   - sensor.woonkamer_temperatuur
                 name: Binnen
-                line_color: var(--accent-color)
-                line_width: 8
-                font_size: 50
+                font_size: 75
+                show:
+                  labels: false
+                color_thresholds:
+                  - value: 10
+                    color: 'red'
+                  - value: 21
+                    color: 'orange'
+                  - value: 24
+                    color: 'green'
             - type: 'custom:card-modder'
               style:
                 border-radius: 20px
@@ -140,9 +156,16 @@ views:
                 entities:
                   - sensor.slaapkamer_sensor_temperature
                 name: Slaapkamer
-                line_color: var(--accent-color)
-                line_width: 8
-                font_size: 50
+                font_size: 75
+                show:
+                  labels: false
+                color_thresholds:
+                  - value: 10
+                    color: 'red'
+                  - value: 20
+                    color: 'orange'
+                  - value: 22
+                    color: 'green'
           - type: horizontal-stack
             cards:
               - type: 'custom:card-modder'
@@ -156,13 +179,19 @@ views:
                   color: "#999999"
                   box-shadow: 3px 3px rgba(0,0,0,0.4)
                 card:
-                  type: custom:button-card
-                  entity: group.deuren
-                  tap_action:
-                    action: more-info
-                  name: Deuren
-                  icon: mdi:door
-                  color: rgb(28, 128, 199)
+                  type: 'custom:mini-graph-card'
+                  entities:
+                    - sensor.naar_ing
+                  show:
+                    graph: line
+                  color_thresholds:
+                    - value: 30
+                      color: 'green'
+                    - value: 50
+                      color: 'orange'
+                    - value: 70
+                      color: 'red'
+                  title: Naar ING
               - type: 'custom:card-modder'
                 style:
                   border-radius: 20px
@@ -174,13 +203,19 @@ views:
                   color: "#999999"
                   box-shadow: 3px 3px rgba(0,0,0,0.4)
                 card:
-                  type: custom:button-card
-                  entity: group.ramen
-                  tap_action:
-                    action: more-info
-                  name: Ramen
-                  icon: mdi:window-closed
-                  color: rgb(28, 128, 199)
+                  type: 'custom:mini-graph-card'
+                  title: Naar Ellen
+                  entities:
+                    - sensor.naar_ellen
+                  show:
+                    graph: line
+                  color_thresholds:
+                    - value: 40 
+                      color: 'green'
+                    - value: 50
+                      color: 'orange'
+                    - value: 70
+                      color: 'red'
       - type: vertical-stack
         cards:
           - type: horizontal-stack
@@ -202,15 +237,16 @@ views:
                   tap_action:
                     action: more-info
                   icon: mdi:thermostat
-                  show_state: true
+                  show_state: false
                   state:
                     - value: 'off'
+                      color: grey
                       icon: mdi:thermostat
                     - value: 'heat'
-                      color: rgb(255, 165, 0)
+                      color: orange
                       icon: mdi:thermostat
                     - value: 'eco'
-                      color: rgb(40, 205, 50)
+                      color: green
                       icon: mdi:thermostat
               - type: 'custom:card-modder'
                 style:
@@ -230,6 +266,11 @@ views:
                   name: Verlichting
                   icon: mdi:lightbulb
                   color: rgb(28, 128, 199)
+                  state:
+                    - value: "off"
+                      color: grey
+                    - value: "on"
+                      color: yellow
               - type: 'custom:card-modder'
                 style:
                   border-radius: 20px
@@ -248,6 +289,11 @@ views:
                   name: Media
                   icon: mdi:library-music
                   color: rgb(28, 128, 199)
+                  state:
+                    - value: "off"
+                      color: grey
+                    - value: "on"
+                      color: yellow
           - type: horizontal-stack
             cards:
               - type: 'custom:card-modder'
@@ -309,64 +355,66 @@ views:
                   border-width: 1px
                   color: "#999999"
             card:
-              type: 'custom:calendar-card'
-              name: Agenda
-              numberOfDays: 7
-              showProgressBar: false
+              type: custom:atomic-calendar
+              title: Agenda
               entities:
-                - calendar.martijn_kalf_gmail_com
-                - calendar.https_www_avalex_nl_ical_0503200000109880
-              showColors: true
+                - entity: calendar.ellen_en_martijn
+                - entity: calendar.martijn_kalf_gmail_com
+                - entity: calendar.https_www_avalex_nl_ical_0503200000109880
           - type: horizontal-stack
             cards:
-              - type: 'custom:card-modder'
-                style:
-                  border-radius: 20px
-                  background-image: url("/local/cardbackK.png")
-                  background-repeat: no-repeat
-                  background-color: rgba(50,50,50,0.3)
-                  background-size: 100% 68px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  color: "#999999"
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
-                card:
-                  type: 'custom:bar-card'
-                  entity: sensor.speedtest_download
-                  min: 0
-                  max: 400
-                  severity:
-                  - value: 25
-                    color: '#FF0000'
-                  - value: 200
-                    color: '#FFA500'
-                  - value: 500
-                    color: '#28CD32'
-                  title: Download
-                  alight: left
-              - type: 'custom:card-modder'
-                style:
-                  border-radius: 20px
-                  background-image: url("/local/cardbackK.png")
-                  background-repeat: no-repeat
-                  background-color: rgba(50,50,50,0.3)
-                  background-size: 100% 68px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  color: "#999999"
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
-                card:
-                  type: 'custom:bar-card'
-                  entity: sensor.speedtest_upload
-                  min: 0
-                  max: 400
-                  severity:
-                  - value: 5
-                    color: '#FF0000'
-                  - value: 15
-                    color: '#FFA500'
-                  - value: 45
-                    color: '#28CD32'
-                  title: Upload
-                  alight: left             
+            - type: 'custom:card-modder'
+              style:
+                    border-radius: 20px
+                    background-image: url("/local/cardbackK.png")
+                    background-repeat: no-repeat
+                    background-color: rgba(50,50,50,0.3)
+                    background-size: 100% 68px
+                    border-style: solid
+                    border-color: '#323232'
+                    border-width: 1px
+                    color: "#999999"
+              card:
+                type: custom:button-card
+                entity: sensor.postnl_letters
+                color: rgb(28, 128, 199)
+                tap_action:
+                  action: more-info
+                show_name: false
+                show_state: true
+                state:
+                  - value: 1
+                    operator: '>='
+                    color: green
+                  - value: 0
+                    operator: '='
+                    color: blue
+            - type: 'custom:card-modder'
+              style:
+                    border-radius: 20px
+                    background-image: url("/local/cardbackK.png")
+                    background-repeat: no-repeat
+                    background-color: rgba(50,50,50,0.3)
+                    background-size: 100% 68px
+                    border-style: solid
+                    border-color: '#323232'
+                    border-width: 1px
+                    color: "#999999"
+              card:
+                type: custom:button-card
+                entity: sensor.postnl_delivery
+                color: rgb(28, 128, 199)
+                tap_action:
+                  action: more-info
+                show_name: false
+                show_state: true
+                state:
+                  - value: 1
+                    operator: '>='
+                    color: green
+                  - value: 0
+                    operator: '='
+                    color: blue
     icon: 'mdi:home'
     title: Overzicht
   
@@ -396,16 +444,17 @@ views:
                   name: Beneden
                   entity: sensor.benedenhal_nest_protect_kleur
                   icon: mdi:smoke-detector
-                  action: more_info
+                  tap_action:
+                    action: more-info
                   state:
                     - value: 'green'
-                      color: rgb(40, 205, 50)
+                      color: green
                     - value: 'yellow'
-                      color: rgb(255, 255, 0)
+                      color: orange
                     - value: 'red'
-                      color: rgb(255, 0, 0)
+                      color: red
                     - value: 'grey'
-                      color: rgb(192, 192, 192)
+                      color: grey
               - type: 'custom:card-modder'
                 style:
                   border-radius: 20px
@@ -421,16 +470,17 @@ views:
                   name: Boven
                   entity: sensor.bovenhal_nest_protect_kleur
                   icon: mdi:smoke-detector
-                  action: more_info
+                  tap_action:
+                    action: more-info
                   state:
                     - value: 'green'
-                      color: rgb(40, 205, 50)
+                      color: green
                     - value: 'yellow'
-                      color: rgb(255, 255, 0)
+                      color: orange
                     - value: 'red'
-                      color: rgb(255, 0, 0)
+                      color: red
                     - value: 'grey'
-                      color: rgb(192, 192, 192)
+                      color: grey
               - type: 'custom:card-modder'
                 style:
                   border-radius: 20px
@@ -443,15 +493,40 @@ views:
                   box-shadow: 3px 3px rgba(0,0,0,0.4)
                 card:
                   type: custom:button-card
-                  name: Toilet
-                  entity: light.toilet
-                  icon: mdi:toilet
-                  action: more_info
+                  entity: group.deuren
+                  tap_action:
+                    action: more-info
+                  name: Deuren
+                  icon: mdi:door
+                  color: rgb(28, 128, 199)
                   state:
-                    - value: 'off'
-                      color: rgb(40, 205, 50)
-                    - value: 'on'
-                      color: rgb(255, 0, 0)
+                    - value: "off"
+                      color: green
+                    - value: "on"
+                      color: red
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  entity: group.ramen
+                  tap_action:
+                    action: more-info
+                  name: Ramen
+                  icon: mdi:window-closed
+                  color: rgb(28, 128, 199)
+                  state:
+                    - value: "off"
+                      color: green
+                    - value: "on"
+                      color: red
           - type: 'custom:card-modder'
             style:
               border-radius: 20px
@@ -500,13 +575,8 @@ views:
           color: "#999999"
           box-shadow: 3px 3px rgba(0,0,0,0.4)
         card:
-          type: entities
-          title: Locatie
-          show_header_toggle: false
-          entities:
-            - entity: sensor.google_geocode
-              icon: mdi:crosshairs-gps
-              name: Martijn
+          type: custom:weather-card
+          entity: weather.weersverwachting
     icon: 'mdi:chart-bar'
     title: Overzicht
 
@@ -517,6 +587,26 @@ views:
         menu: overflow
         voice: hidden
         notifications: hide
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 20px
+          background-image: url("/local/cardbackK.png")
+          background-repeat: no-repeat
+          background-color: rgba(50,50,50,0.3)
+          background-size: 100% 68px
+          border: solid 1px rgba(100,100,100,0.3)
+          color: "#999999"
+          box-shadow: 3px 3px rgba(0,0,0,0.4)
+        card:
+          type: entities
+          title: Circadiaan ritme
+          show_header_toggle: false
+          entities:
+            - entity: switch.circadian_lighting_circadian_lighting
+              name: Circadiaan ritme
+              secondary_info: last-changed
+              toggle: true
+              group: true
       - type: 'custom:card-modder'
         style:
           border-radius: 20px
@@ -1632,267 +1722,6 @@ views:
         menu: overflow
         voice: hidden
         notifications: hide
-      - type: 'custom:card-modder'
-        style:
-          border-radius: 20px
-          background-image: url("/local/cardbackK.png")
-          background-repeat: no-repeat
-          background-color: rgba(50,50,50,0.3)
-          background-size: 100% 68px
-          border: solid 1px rgba(100,100,100,0.3)
-          color: "#999999"
-          box-shadow: 3px 3px rgba(0,0,0,0.4)
-        card:
-          type: 'custom:monster-card'
-          card:
-            type: glance
-            title: Batterijen minder dan 40%
-          filter:
-            include:
-              - domain: binary_sensor
-                attributes:
-                  battery_level: '< 40'
-              - entity_id: device_tracker.iphone_van_martijn
-                attributes:
-                  battery: '< 40'
-              - entity_id: device_tracker.martijns_ipad
-                attributes:
-                  battery: '< 40'
-              - entity_id: device_tracker.martijns_ipad_air
-                attributes:
-                  battery: '< 40'
-      - type: 'custom:card-modder'
-        style:
-          border-radius: 20px
-          background-image: url("/local/cardbackK.png")
-          background-repeat: no-repeat
-          background-color: rgba(50,50,50,0.3)
-          background-size: 100% 68px
-          border: solid 1px rgba(100,100,100,0.3)
-          color: "#999999"
-          box-shadow: 3px 3px rgba(0,0,0,0.4)
-        card:
-          type: markdown
-          content: >
-            **Home server**
-              ==========
-      - type: horizontal-stack
-        cards:
-        - type: 'custom:card-modder'
-          style:
-            border-radius: 20px
-            background-image: url("/local/cardbackK.png")
-            background-repeat: no-repeat
-            background-color: rgba(50,50,50,0.3)
-            background-size: 100% 68px
-            border: solid 1px rgba(100,100,100,0.3)
-            color: "#999999"
-            box-shadow: 3px 3px rgba(0,0,0,0.4)
-          card:
-            type: custom:mini-graph-card
-            entities:
-              - sensor.processor_use
-            name: CPU
-            show:
-              graph: bar
-            color_thresholds:
-              - value: 0
-                color: "#6B8E23"
-              - value: 20
-                color: "#FFA500"
-              - value: 50
-                color: "#FF4500"
-        - type: 'custom:card-modder'
-          style:
-            border-radius: 20px
-            background-image: url("/local/cardbackK.png")
-            background-repeat: no-repeat
-            background-color: rgba(50,50,50,0.3)
-            background-size: 100% 68px
-            border: solid 1px rgba(100,100,100,0.3)
-            color: "#999999"
-            box-shadow: 3px 3px rgba(0,0,0,0.4)
-          card:
-            type: custom:mini-graph-card
-            entities:
-              - sensor.memory_use_percent
-            name: RAM
-            show:
-              graph: bar
-            color_thresholds:
-              - value: 5
-                color: "#6B8E23"
-              - value: 50
-                color: "#FFA500"
-              - value: 90
-                color: "#FF4500"
-        - type: 'custom:card-modder'
-          style:
-            border-radius: 20px
-            background-image: url("/local/cardbackK.png")
-            background-repeat: no-repeat
-            background-color: rgba(50,50,50,0.3)
-            background-size: 100% 68px
-            border: solid 1px rgba(100,100,100,0.3)
-            color: "#999999"
-            box-shadow: 3px 3px rgba(0,0,0,0.4)
-          card:
-            type: custom:mini-graph-card
-            entities:
-              - sensor.disk_use_percent
-            name: DISK
-            show:
-              graph: bar
-            color_thresholds:
-              - value: 0 
-                color: "#6B8E23"
-              - value: 50
-                color: "#FFA500"
-              - value: 75
-                color: "#FF4500"
-      - type: 'custom:card-modder'
-        style:
-          border-radius: 20px
-          background-image: url("/local/cardbackK.png")
-          background-repeat: no-repeat
-          background-color: rgba(50,50,50,0.3)
-          background-size: 100% 68px
-          border: solid 1px rgba(100,100,100,0.3)
-          color: "#999999"
-          box-shadow: 3px 3px rgba(0,0,0,0.4)
-        card:
-          type: entities
-          title: Services
-          entity: sensor.plex
-          show_header_toggle: false
-          entities:
-            - entity: sensor.pihole
-              icon: mdi:dns
-            - entity: sensor.mosquitto
-              icon: mdi:lan
-            - entity: sensor.plex
-              icon: mdi:plex
-            - entity: sensor.squeezebox
-              icon: mdi:playlist-music
-      - type: 'custom:card-modder'
-        style:
-          border-radius: 20px
-          background-image: url("/local/cardbackK.png")
-          background-repeat: no-repeat
-          background-color: rgba(50,50,50,0.3)
-          background-size: 100% 68px
-          border: solid 1px rgba(100,100,100,0.3)
-          color: "#999999"
-          box-shadow: 3px 3px rgba(0,0,0,0.4)
-        card:
-          type: markdown
-          content: >
-            **Meterkast raspberry pi**
-              ======================
-      - type: horizontal-stack
-        cards:
-        - type: 'custom:card-modder'
-          style:
-            border-radius: 20px
-            background-image: url("/local/cardbackK.png")
-            background-repeat: no-repeat
-            background-color: rgba(50,50,50,0.3)
-            background-size: 100% 68px
-            border: solid 1px rgba(100,100,100,0.3)
-            color: "#999999"
-            box-shadow: 3px 3px rgba(0,0,0,0.4)
-          card:
-            type: custom:mini-graph-card
-            entities:
-              - sensor.glances_cpu_used
-            name: CPU
-            show:
-              graph: bar
-            color_thresholds:
-              - value: 0
-                color: "#6B8E23"
-              - value: 20
-                color: "#FFA500"
-              - value: 50
-                color: "#FF4500"
-        - type: 'custom:card-modder'
-          style:
-            border-radius: 20px
-            background-image: url("/local/cardbackK.png")
-            background-repeat: no-repeat
-            background-color: rgba(50,50,50,0.3)
-            background-size: 100% 68px
-            border: solid 1px rgba(100,100,100,0.3)
-            color: "#999999"
-            box-shadow: 3px 3px rgba(0,0,0,0.4)
-          card:
-            type: custom:mini-graph-card
-            entities:
-              - sensor.glances_ram_used
-            name: RAM
-            show:
-              graph: bar
-            color_thresholds:
-              - value: 5
-                color: "#6B8E23"
-              - value: 50
-                color: "#FFA500"
-              - value: 90
-                color: "#FF4500"
-        - type: 'custom:card-modder'
-          style:
-            border-radius: 20px
-            background-image: url("/local/cardbackK.png")
-            background-repeat: no-repeat
-            background-color: rgba(50,50,50,0.3)
-            background-size: 100% 68px
-            border: solid 1px rgba(100,100,100,0.3)
-            color: "#999999"
-            box-shadow: 3px 3px rgba(0,0,0,0.4)
-          card:
-            type: custom:mini-graph-card
-            entities:
-              - sensor.glances_disk_used
-            name: DISK
-            show:
-              graph: bar
-            color_thresholds:
-              - value: 0 
-                color: "#6B8E23"
-              - value: 50
-                color: "#FFA500"
-              - value: 75
-                color: "#FF4500"
-      - type: 'custom:card-modder'
-        style:
-          border-radius: 20px
-          background-image: url("/local/cardbackK.png")
-          background-repeat: no-repeat
-          background-color: rgba(50,50,50,0.3)
-          background-size: 100% 68px
-          border: solid 1px rgba(100,100,100,0.3)
-          color: "#999999"
-          box-shadow: 3px 3px rgba(0,0,0,0.4)
-        card:
-          type: entities
-          title: Services
-          entity: sensor.plex
-          show_header_toggle: false
-          entities:
-            - entity: sensor.ser2net
-              icon: mdi:serial-port
-            - entity: sensor.glances
-              icon: mdi:view-dashboard
-    icon: 'mdi:settings'
-    title: System Monitor
-
-  - badges: []
-    cards:
-      - type: custom:compact-custom-header
-        main_config: true
-        menu: overflow
-        voice: hidden
-        notifications: hide
       - type: vertical-stack
         cards:
           - type: 'custom:card-modder'
@@ -2020,11 +1849,11 @@ views:
                   graph: line
                 color_thresholds:
                   - value: 0
-                    color: "#6B8E23"
+                    color: green
                   - value: 20
-                    color: "#FFA500"
+                    color: orange
                   - value: 50
-                    color: "#FF4500"
+                    color: red
             - type: 'custom:card-modder'
               style:
                 border-radius: 20px
@@ -2044,11 +1873,11 @@ views:
                   graph: line
                 color_thresholds:
                   - value: 5
-                    color: "#6B8E23"
+                    color: green
                   - value: 50
-                    color: "#FFA500"
+                    color: orange
                   - value: 90
-                    color: "#FF4500"
+                    color: red
             - type: 'custom:card-modder'
               style:
                 border-radius: 20px
@@ -2068,11 +1897,11 @@ views:
                   graph: line
                 color_thresholds:
                   - value: 0 
-                    color: "#6B8E23"
+                    color: green
                   - value: 50
-                    color: "#FFA500"
+                    color: orange
                   - value: 75
-                    color: "#FF4500"
+                    color: red
           - type: 'custom:card-modder'
             style:
               border-radius: 20px
@@ -2105,15 +1934,16 @@ views:
                 entities:
                   - sensor.vault_cpu_usage
                 name: CPU
+                icon: mdi:memory
                 show:
                   graph: line
                 color_thresholds:
                   - value: 0
-                    color: "#6B8E23"
+                    color: green
                   - value: 20
-                    color: "#FFA500"
+                    color: orange
                   - value: 50
-                    color: "#FF4500"
+                    color: red
             - type: 'custom:card-modder'
               style:
                 border-radius: 20px
@@ -2133,11 +1963,11 @@ views:
                   graph: line
                 color_thresholds:
                   - value: 5
-                    color: "#6B8E23"
+                    color: green
                   - value: 50
-                    color: "#FFA500"
+                    color: orange
                   - value: 90
-                    color: "#FF4500"
+                    color: red
             - type: 'custom:card-modder'
               style:
                 border-radius: 20px
@@ -2153,15 +1983,16 @@ views:
                 entities:
                   - sensor.vault_volume_used_volume_1
                 name: DISK
+                icon: mdi:harddisk
                 show:
                   graph: line
                 color_thresholds:
-                  - value: 0 
-                    color: "#6B8E23"
+                  - value: 10 
+                    color: green
                   - value: 50
-                    color: "#FFA500"
+                    color: orange
                   - value: 75
-                    color: "#FF4500"
+                    color: red
       - type: vertical-stack
         cards:
           - type: 'custom:card-modder'
@@ -2199,12 +2030,12 @@ views:
                 show:
                   graph: line
                 color_thresholds:
-                  - value: 50000 
-                    color: "#6B8E23"
+                  - value: 50
+                    color: green
                   - value: 75000
-                    color: "#FFA500"
+                    color: orange
                   - value: 100000
-                    color: "#FF4500"
+                    color: red
             - type: 'custom:card-modder'
               style:
                 border-radius: 20px
@@ -2223,12 +2054,12 @@ views:
                 show:
                   graph: line
                 color_thresholds:
-                  - value: 2500 
-                    color: "#6B8E23"
-                  - value: 5000
-                    color: "#FFA500"
+                  - value: 50 
+                    color: green
+                  - value: 2000
+                    color: orange
                   - value: 10000
-                    color: "#FF4500"
+                    color: red
           - type: 'horizontal-stack'
             cards:
             - type: 'custom:card-modder'
@@ -2250,11 +2081,11 @@ views:
                   graph: line
                 color_thresholds:
                   - value: 500 
-                    color: "#6B8E23"
+                    color: green
                   - value: 300
-                    color: "#FFA500"
+                    color: orange
                   - value: 200
-                    color: "#FF4500"
+                    color: red
             - type: 'custom:card-modder'
               style:
                 border-radius: 20px
@@ -2274,10 +2105,40 @@ views:
                   graph: line
                 color_thresholds:
                   - value: 50 
-                    color: "#6B8E23"
+                    color: green
                   - value: 30
-                    color: "#FFA500"
+                    color: orange
                   - value: 20
-                    color: "#FF4500"
-    icon: 'mdi:monitor'
-    title: Office Display
+                    color: red
+          - type: 'horizontal-stack'
+            cards:
+            - type: 'custom:card-modder'
+              style:
+                border-radius: 20px
+                background-image: url("/local/cardbackK.png")
+                background-repeat: no-repeat
+                background-color: rgba(50,50,50,0.3) 
+                background-size: 100% 68px
+                border: solid 1px rgba(100,100,100,0.3)
+                color: "#999999"
+                box-shadow: 3px 3px rgba(0,0,0,0.4)
+              card:
+                type: entities
+                title: Services
+                entity: sensor.plex
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.pihole
+                    icon: mdi:dns
+                  - entity: sensor.mosquitto
+                    icon: mdi:lan
+                  - entity: sensor.plex
+                    icon: mdi:plex
+                  - entity: sensor.squeezebox
+                    icon: mdi:playlist-music
+                  - entity: sensor.ser2net
+                    icon: mdi:serial-port
+                  - entity: sensor.glances
+                    icon: mdi:view-dashboard
+    icon: 'mdi:settings'
+    title: System Monitor

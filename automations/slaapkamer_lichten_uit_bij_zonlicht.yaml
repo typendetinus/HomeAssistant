@@ -3,7 +3,7 @@
     trigger:
       platform: numeric_state
       entity_id: sensor.slaapkamer_sensor_light_level
-      above: 33
+      above: 70
     action:
       - service: light.turn_off
         entity_id: light.slaapkamer

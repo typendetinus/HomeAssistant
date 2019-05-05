@@ -1,0 +1,11 @@
+  - platform: circadian_lighting
+    lights_ct:
+      - light.woonkamer
+      - light.kantoor
+      - light.toilet
+      - light.keuken
+      - light.beneden_hal
+      - light.boven_hal
+      - light.badkamer
+      - light.logeer_kamer
+      - light.zolder

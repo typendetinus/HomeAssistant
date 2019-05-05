@@ -11,6 +11,10 @@
           language: 'nl'
       - service: media_player.volume_set
         data:
+          entity_id: media_player.woonkamer_googlehome
+          volume_level: 0.2
+      - service: media_player.volume_set
+        data:
           entity_id: media_player.logeerkamer_googlehome
           volume_level: 0.3
       - service: tts.google_say
@@ -36,3 +40,7 @@
         data:
           message: 'Opgelet! Er staat iemand voor de deur'
           language: 'nl'
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.kantoor_googlehome
+          volume_level: 0.2

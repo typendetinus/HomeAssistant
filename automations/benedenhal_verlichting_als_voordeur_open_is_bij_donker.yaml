@@ -11,7 +11,7 @@
         state: 'below_horizon'
     action:
       service: homeassistant.turn_on
-      entity_id: light.benedenhal
+      entity_id: light.beneden_hal
 
   - alias: 'Beneden hal verlichting uit 5 seconden na het sluiten van de voordeur'
     initial_state: 'on'
@@ -28,4 +28,4 @@
       - delay: '00:00:05'
       - service: homeassistant.turn_off
         entity_id:
-          - light.benedenhal
+          - light.beneden_hal

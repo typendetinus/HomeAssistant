@@ -1,0 +1,218 @@
+title: Martijn's Huis
+
+resources:
+  - url: /local/slider-entity-row.js
+    type: js
+  - url: /local/custom-lovelace/weather-card/weather-card.js
+    type: module
+  - url: /local/gauge-card.js?v=2
+    type: js
+  - url: /local/mini-media-player/mini-media-player.js?v=0.8.3
+    type: module
+  - url: /local/thermostat-card.js
+    type: module
+  - url: /local/simple-thermostat.js
+    type: module
+  - url: /local/card-modder.js
+    type: module
+  - url: /local/card-tools.js
+    type: js
+  - url: https://unpkg.com/moment@2.22.2/moment.js
+    type: js
+  - url: /local/custom_ui/calendar-card/calendar-card.js
+    type: module
+  - url: /local/entity-attributes-card.js
+    type: js
+  - url: /local/jukebox.js
+    type: module
+  - url: /local/tiles-card.js
+    type: js
+  - url: /local/state-switch.js
+    type: js
+  - url: /local/mini-graph-card-bundle.js
+    type: module
+  - url: /local/button-card.js
+    type: module
+  - url: /local/compact-custom-header.js
+    type: module
+  - url: /local/bar-card.js
+    type: js
+  - url: /local/monster-card.js
+    type: js
+  - url: /local/postnl-card.js
+    type: module
+  - url: /local/multiple-entity-row.js
+    type: js
+  - url: /local/atomic-calendar.js
+    type: module
+
+background: center / cover no-repeat url("/local/back.png") fixed
+views:
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: vertical-stack
+        cards:
+          - type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            card:
+              type: entities
+              show_header_toggle: false
+              entities:
+                - entity: person.martijn
+                - entity: sensor.google_geocode
+                  name: Adres
+                  icon: mdi:map-marker
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  entity: sensor.iphone_van_martijn_battery_level_2
+                  color: rgb(28, 128, 199)
+                  tap_action:
+                    action: more-info
+                  show_name: false
+                  show_state: true
+                  state:
+                    - value: 75
+                      operator: '>='
+                      color: green
+                    - operator: 'default'
+                      color: orange
+                    - value: 20
+                      operator: '<'
+                      color: red
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+                card:
+                  type: custom:button-card
+                  entity: sensor.postnl_letters
+                  color: rgb(28, 128, 199)
+                  tap_action:
+                    action: more-info
+                  show_name: false
+                  show_state: true
+                  state:
+                    - value: 1
+                      operator: '>='
+                      color: green
+                    - value: 0
+                      operator: '='
+                      color: blue
+      - type: vertical-stack
+        cards:
+          - type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            card:
+              type: custom:bar-card
+              title_position: inside
+              title: Reistijd naar Ellen
+              entity: sensor.naar_ellen
+              severity:
+              - value: 50
+                color: 'green'
+              - value: 60
+                color: 'orange'
+              - value: 70
+                color: 'red'
+          - type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            card:
+              type: custom:bar-card
+              title_position: inside
+              title: Reistijd naar kantoor
+              entity: sensor.naar_ing
+              severity:
+              - value: 50
+                color: 'green'
+              - value: 60
+                color: 'orange'
+              - value: 75
+                color: 'red'
+          - type: 'custom:card-modder'
+            style:
+              border-radius: 20px
+              background-image: url("/local/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 68px
+              border: solid 1px rgba(100,100,100,0.3)
+              color: "#999999"
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+            card:
+              type: custom:atomic-calendar
+              title: Agenda
+              entities:
+                - entity: calendar.ellen_en_martijn
+                - entity: calendar.martijn_kalf_gmail_com
+                - entity: calendar.https_www_avalex_nl_ical_0503200000109880
+    icon: 'mdi:account'
+    title: Martijn
+
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: overflow
+        voice: hidden
+        notifications: hide
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 20px
+                  background-image: url("/local/cardbackK.png")
+                  background-repeat: no-repeat
+                  background-color: rgba(50,50,50,0.3)
+                  background-size: 100% 68px
+                  border: solid 1px rgba(100,100,100,0.3)
+                  color: "#999999"
+                  box-shadow: 3px 3px rgba(0,0,0,0.4)

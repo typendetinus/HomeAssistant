@@ -31,3 +31,16 @@
             state: on
             transition: 2
             brightness_pct: 10
+
+  - name: Thuis komen na zonsondergang
+    entities:
+        light.woonkamer:
+            state: on
+            transition: 2
+            brightness_pct: 25
+        light.keuken_vloer:
+            state: on
+            transition: 2
+            brightness_pct: 10
+        switch.woonkamer_radio:
+            state: on

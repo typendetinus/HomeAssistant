@@ -1,0 +1,14 @@
+  - alias: 'Verlichting en muziek aan bij thuiskomst in het donker'
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: input_boolean.martijn_present
+      from: 'off'
+      to: 'on'
+    condition:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+    action:
+      service: scene.turn_on
+      entity_id: scene.thuis_komen_na_zonsondergang

@@ -26,3 +26,10 @@
     ignore_availability: true
     name: Feestdagen in Nederland
     track: true
+
+- cal_id: r7b5996lcsjs7v3rv08pmdek8k@group.calendar.google.com
+  entities:
+  - device_id: ellen_en_martijn
+    ignore_availability: true
+    name: Ellen en Martijn
+    track: true
