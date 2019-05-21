@@ -23,7 +23,6 @@
       - weather
       - zone
     include_entities:
-      - light.boven_hal
       - light.logeer_kamer
       - light.fornuis
       - light.keuken
@@ -77,3 +76,4 @@
       - binary_sensor.woonkamer_raam
       - binary_sensor.zolder_raam_links
       - binary_sensor.zolder_raam_rechts
+      - person.martijn

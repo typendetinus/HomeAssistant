@@ -73,8 +73,7 @@ views:
                   state_image:
                     "home": /local/tinus.jpg
                     "ING": /local/tinus-away.jpg
-                    "Ellen": /local/martijn-ellen.jpg
-                    "not_home": /local/tinus-away.jpg
+                    "Ellen": /local/ellen_martijn.jpg
                   name: Martijn
               - type: 'custom:card-modder'
                 style:
@@ -606,16 +605,12 @@ views:
           box-shadow: 3px 3px rgba(0,0,0,0.4)
         card:
           type: entities
-          title: Schema's
+          title: Circadiaan ritme
           show_header_toggle: false
           entities:
             - entity: switch.circadian_lighting_circadian_lighting
               name: Circadiaan ritme
               secondary_info: last-changed
-              toggle: true
-              group: true
-            - entity: scene.woonkamer_on
-              name: Woonkamer avond
               toggle: true
               group: true
       - type: 'custom:card-modder'

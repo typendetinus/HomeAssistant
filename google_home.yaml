@@ -48,6 +48,4 @@
         - switch.logeerkamer_dvd_speler
         - switch.logeerkamer_playstation3
         - switch.logeerkamer_squeezebox
-        - input_boolean.woonkamercamera_naar_googlehomehub
-        - input_boolean.woonkamercamera_naar_slaapkamerchromecast
         - group.beneden

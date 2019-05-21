@@ -33,6 +33,8 @@ config:
 updater:
 # Discover some devices automatically
 discovery:
+  ignore:
+    - harmony
 
 cloud:
     google_actions: !include google_home.yaml
@@ -82,16 +84,16 @@ google:
 remote:
   - platform: harmony
     name: Living Room Hub
-    host: HarmonyHub.martijn
+    host: livingroomhub.martijn
   - platform: harmony
     name: OfficeHUB
-    host: officehub.martijn
+    host: 10.0.1.159
   - platform: harmony
     name: GuestHub
     host: GuestHub.martijn
   - platform: harmony
     name: Slaapkamer Hub
-    host: SlaapkamerHUB.martijn
+    host: slaapkamerhub.martijn
 
 xiaomi_aqara:
   discovery_retry: 9
@@ -133,22 +135,15 @@ input_boolean:
     icon: mdi:account
   ellen_present:
     icon: mdi:account
-  woonkamercamera_naar_googlehomehub:
-    icon: mdi:cctv
-  tuincamera_naar_googlehomehub:
-    icon: mdi:cctv
-  woonkamercamera_naar_slaapkamerchromecast:
-    icon: mdi:cctv
-  dummy5:
-    name: Dummy Button 5
-    initial: off
 
 input_select:
-  martijn:
-    name: Categorie
+  huis_stand:
+    name: Huis stand
     options:
-      - Algemeen
-      - Agenda
+      - Ochtend
+      - Middag
+      - Avond
+      - Nacht
 
 shell_command:
   zet_linuxpc_uit: "ssh martijn@spacestation.local sudo pm-suspend"

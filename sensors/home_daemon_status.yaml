@@ -1,4 +1,8 @@
   - platform: command_line
+    command: systemctl --all | grep appdaemon | awk '{ print $3 }'
+    name: Appdaemon
+  
+  - platform: command_line
     command: systemctl --all | grep plex | awk '{ print $3 }'
     name: Plex
 
@@ -16,3 +20,4 @@
 
   - platform: command_line
     command: systemctl --all | grep influxdb | awk '{ print $3 }'
+    name: InfluxDB

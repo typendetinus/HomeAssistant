@@ -202,5 +202,5 @@ class PostNLLetter(Entity):
         self._attributes['letters'] = []
 
         for letter in letters:
-            self._attributes['brieven'].append(vars(letter))
+            self._attributes['letters'].append(vars(letter))
         self._state = len(letters)

@@ -53,6 +53,13 @@
       - light.woonkamer_televisie_spot_links
       - light.woonkamer_televisie_spot_rechts
 
+  boven_hal_verlichting:
+    name: Boven Hal Verlichting
+    entities:
+      - light.boven_hal_lamp_1
+      - light.boven_hal_lamp_2
+    view: false
+
   beneden:
     name: Beneden
     control: hidden
@@ -63,3 +70,10 @@
       - light.keuken_vloer
       - light.videohoek
       - light.woonkamer
+
+  zolder_deuren:
+    name: Zolder Deuren
+    control: hidden
+    entities:
+      - binary_sensor.zolder_raam_links
+      - binary_sensor.zolder_raam_rechts
