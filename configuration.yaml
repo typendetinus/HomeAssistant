@@ -43,6 +43,13 @@ ios:
 
 stream:
 
+audiconnect:
+  username: !secret audi_user
+  password: !secret audi_pwd
+  region: EU
+  name:
+    !secret vin: 'Audi A4'
+
 circadian_lighting:
 
 person:
@@ -73,10 +80,6 @@ weather:
     name: Weersverwachting
     mode: daily
 
-rfxtrx:
-  device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A11AAXIB-if00-port0
-  debug: True
-
 google:
   client_id: !secret google_client
   client_secret: !secret google_secret
@@ -87,7 +90,7 @@ remote:
     host: livingroomhub.martijn
   - platform: harmony
     name: OfficeHUB
-    host: 10.0.1.159
+    host: officehub.martijn
   - platform: harmony
     name: GuestHub
     host: GuestHub.martijn

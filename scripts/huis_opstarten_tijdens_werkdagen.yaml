@@ -14,19 +14,6 @@
           rgb_color: [249,123,0]
       - delay:
           seconds: 5.00
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.slaapkamer_google_home
-          volume_level: 0.4
-      - service: media_player.volume_set
-        data_template:
-          entity_id: media_player.slaapkamer_google_home
-          volume_level: 0.3
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.slaapkamer_google_home
-          media_content_id: https://ia902705.us.archive.org/24/items/OceanSound-NatureSounds/08Ocean.mp3
-          media_content_type: audio/mp4
       - service: light.turn_on
         data:
           entity_id: light.slaapkamer_lamp_3
@@ -42,8 +29,6 @@
           transition: 30
       - delay:
           seconds: 40.00
-      - service: media_player.turn_off
-        entity_id: media_player.slaapkamer_google_home
       - delay:
           seconds: 1.00
       - service: switch.turn_on

@@ -1,0 +1,7 @@
+  - platform: rdw
+    name: "Audi A4"
+    plate: jf510g
+    sensors:
+      - expdate
+      - insured
+      - recall

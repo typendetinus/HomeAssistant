@@ -8,7 +8,7 @@
       - service: script.turn_on
         data_template:
           entity_id: >-
-            {% if is_state('input_boolean.martijn_present', 'on') %}
+            {% if is_state('person.martijn', 'home') %}
               script.deurbel_thuis
             {% else %}
               script.deurbel_niet_thuis

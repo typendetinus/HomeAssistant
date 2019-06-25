@@ -293,5 +293,11 @@ switch.bed_sensor:
   icon: mdi:led-strip
 person.martijn:
   entity_picture: /local/tinus.jpg
-  icon: 'mdi:home'
+  icon: mdi:home
   title: Overzicht
+sensor.audi_a4_tank_level:
+  friendly_name: Auto Brandstof
+sensor.audi_a4_range:
+  friendly_name: Auto Bereik
+group.all_automations:
+  hidden: false
