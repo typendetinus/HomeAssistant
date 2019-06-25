@@ -3238,3 +3238,10 @@ homeassistant.exceptions.HomeAssistantError: Entity id already exists: binary_se
 2019-06-25 20:30:33 ERROR (MainThread) [aioharmony.hubconnector] GuestHub.martijn: Unable to retrieve HUB id
 2019-06-25 20:30:33 WARNING (MainThread) [homeassistant.components.harmony.remote] GuestHub: Unable to connect to HUB.
 2019-06-25 20:30:33 WARNING (MainThread) [homeassistant.components.remote] Platform harmony not ready yet. Retrying in 180 seconds.
+2019-06-25 20:31:34 ERROR (MainThread) [custom_components.audiconnect.audi_connect_account] time data '2019-06-25T14:43:57Z' does not match format '%Y-%m-%dT%H:%M:%S%z'
+2019-06-25 20:33:01 ERROR (SyncWorker_12) [homeassistant.core] Error doing job: Unclosed client session
+2019-06-25 20:33:37 ERROR (MainThread) [aioharmony.hubconnector] GuestHub.martijn: Exception on post: Cannot connect to host guesthub.martijn:8088 ssl:None [Connect call failed ('10.0.1.250', 8088)]
+2019-06-25 20:33:37 ERROR (MainThread) [aioharmony.hubconnector] GuestHub.martijn: Unable to retrieve HUB id
+2019-06-25 20:33:37 WARNING (MainThread) [homeassistant.components.harmony.remote] GuestHub: Unable to connect to HUB.
+2019-06-25 20:33:37 WARNING (MainThread) [homeassistant.components.remote] Platform harmony not ready yet. Retrying in 180 seconds.
+2019-06-25 20:34:01 ERROR (SyncWorker_17) [homeassistant.core] Error doing job: Unclosed client session
