@@ -1,1 +1,1 @@
-My Home Assistant config always under development
+My old Home Assistant config for archival purposes
